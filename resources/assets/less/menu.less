@@ -1,0 +1,126 @@
+@import "variables.less";
+
+.navbar-default{
+    background-color: fade(white, 92%);
+    border-color: fade(@theme-primary, 20%);
+    border: none;
+
+}
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+  border-bottom: 5px solid @theme-primary;
+  padding-bottom: 10px;
+
+}
+.navbar-default .navbar-nav>li>a.active{
+  border-bottom: 5px solid @theme-primary;
+  padding-bottom: 10px;
+}
+
+@media (max-width: 1000px) {
+    .navbar-header {
+        float: none;
+    }
+    .navbar-left,.navbar-right {
+        float: none !important;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 0px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.0);
+    }
+    .navbar-fixed-top {
+        top: 0;
+        border-width: 0 0 1px;
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin-top: 7.5px;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .collapse.in{
+        display:block !important;
+        border: none;
+    }
+}
+  .navbar-toggle {
+    border-color: @theme-primary !important;
+    color: @theme-primary;
+    .sans-serif-font;
+    &:hover,
+    &:focus {
+      background-color: fade(white, 50%) !important;
+    }
+    .icon-bar {
+      background-color: #fafafa;
+    }
+  }
+.yamm {
+
+  // reset positions
+  .nav, .collapse, .dropup, .dropdown {
+    position: static;
+    text-align: center;
+  }
+
+  // propagate menu position under container for fw navbars
+  .container {
+    position: relative;
+  }
+
+  // by default aligns menu to left
+  .dropdown-menu {
+    left: auto;
+    border: none;
+    box-shadow: 1px 2px 5px fade(@gray-base, 50%);
+
+    & span{
+        position: relative;
+        width: 100%;
+        bottom: 50px;
+        padding: 20px 10px;
+        background: rgba(255, 255, 255, 0.83);
+        // MENU GRAL
+    }
+
+    @media (max-width: 800px) {
+        & span{
+         position: initial;
+          width: 100%;
+          bottom: 50px;
+          padding: 10px 10px;
+          display: table;
+          background: inherit;
+          text-align: center;
+          color: black;
+      }
+    }
+  }
+
+  // Content with padding
+  .yamm-content {
+    padding: 20px 30px;
+    @media (max-widht:300px){
+      & item{
+        width: 100%;
+        padding: 5px 10px;
+      }
+    }
+  }
+
+  // Fullwidth menu
+  .dropdown.yamm-fw .dropdown-menu {
+    left: 0; right: 0;
+  }
+
+}

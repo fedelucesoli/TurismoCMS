@@ -11,11 +11,28 @@
   },
   "devDependencies": {
     "axios": "^0.15.3",
-    "bootstrap-sass": "^3.3.7",
+    "bootstrap": "^3.3.7",
+    "browser-sync": "^2.18.12",
     "cross-env": "^3.2.3",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.0.4",
+    "gulp-connect-php": "^0.0.8",
+    "gulp-less": "^3.3.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.1.2",
     "jquery": "^3.1.1",
     "laravel-mix": "0.*",
     "lodash": "^4.17.4",
     "vue": "^2.1.10"
+  },
+  "name": "TurismoCMS",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/fedelucesoli/TurismoCMS",
+  "author": "fedelucesoli <fedelucesoli@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "http-proxy": "^1.16.2"
   }
 }

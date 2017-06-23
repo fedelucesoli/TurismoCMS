@@ -1,0 +1,88 @@
+<nav id="mainNav" class="navbar yamm navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Menu</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <div class="logo-menu">
+                  <a href="index.php">
+                    <img src="{{asset('img/logo-municipiodelobos_blanco.png')}}" class="img-responsive" alt="Municipio de Lobos">
+                  </a>
+                </div>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="<?php echo (isset($seccion) && $seccion == '') ? 'active' : '';   ?>" href="index.php">INICIO</a>
+                    </li>
+                    <li>
+                        <a class="<?php echo (isset($seccion) && $seccion == 'ciudad') ? 'active' : '';   ?>" href="ciudad.php">CIUDAD</a>
+                    </li>
+
+                    <!-- <li class="visible-xs visible-sm">
+                        <a class="<?php echo (isset($seccion) && $seccion == 'quehacer') ? 'active' : '';   ?>" href="quehacer.php">QUE HACER?</a>
+                    </li> -->
+
+                    <li class="dropdown yamm-fw ">
+                      <a href="#" data-toggle="dropdown" class="dropdown-toggle <?php echo (isset($seccion) && $seccion == 'hacer') ? 'active' : '';   ?>" aria-expanded="true">QUÉ HACER?<b class="caret"></b></a>
+
+                         <ul class="dropdown-menu">
+                            <li>
+                                <div class="yamm-content">
+                                    <div class="row">
+                                        <div class="col-md-3 col-xs-12 item">
+                                            <a href="turismo-laguna.php">
+                                            <img src="public/img/menu/laguna1.jpg" class="img-responsive hidden-xs " alt="Laguna De Lobos">
+                                            <span>LAGUNA DE LOBOS</span></a>
+                                        </div>
+                                        <div class="col-md-3 col-xs-12 item">
+                                            <a href="turismo-rural.php">
+                                            <img src="public/img/menu/rural.jpg" class="img-responsive hidden-xs" alt="Turismo Rural">
+                                            <span>TURISMO RURAL</span></a>
+                                        </div>
+                                       <!--  <div class="col-md-3 col-xs-12 item">
+                                            <a href="turismo-religioso.php">
+                                            <img src="public/img/menu/religioso.jpg" class="img-responsive hidden-xs" alt="Turismo Religioso">
+                                            <span>TURISMO RELIGIOSO</span></a>
+                                        </div> -->
+                                        <div class="col-md-3 col-xs-12 item">
+                                            <a href="turismo-activo.php">
+                                            <img src="public/img/menu/activo.jpg" class="img-responsive hidden-xs" alt="Turismo Activo">
+                                            <span>TURISMO ACTIVO</span></a>
+                                        </div>
+                                        <div class="col-md-3 col-xs-12 item">
+                                            <a href="turismo-reuniones.php">
+                                            <img src="public/img/menu/reuniones.jpg" class="img-responsive hidden-xs" alt="Turismo De Reuniones">
+                                            <span>TURISMO DE REUNIONES</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="<?php echo (isset($seccion) && $seccion == 'comer') ? 'active' : '';   ?>" href="donde-comer.php">DÓNDE COMER?</a>
+                    </li>
+                    <li>
+                        <a class="<?php echo (isset($seccion) && $seccion == 'dormir') ? 'active' : '';   ?>" href="donde-dormir.php">DÓNDE DORMIR?</a>
+                    </li>
+                    <li>
+                        <a class="<?php echo (isset($seccion) && $seccion == 'eventos') ? 'active' : '';   ?>" href="eventos.php">EVENTOS</a>
+                    </li>
+                    <li>
+                        <a class="<?php echo (isset($seccion) && $seccion == 'contacto') ? 'active' : '';   ?>" href="contacto.php">CONTACTO</a>
+                    </li>
+
+                </ul>
+            </div>
+
+
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+
+</nav>

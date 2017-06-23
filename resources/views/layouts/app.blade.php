@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Domine:400,700|Montserrat:300,400,700" rel="stylesheet" type='text/css'>
     <link href="{{ asset('css/turismolobos.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/unslider.css') }}" rel="stylesheet">
-
+    <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
 
 
 

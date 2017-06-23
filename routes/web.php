@@ -16,15 +16,37 @@ Route::get('/', function () {
 });
 
 Route::get('/ciudad', function () {
-    return view('Ciudad de Lobos');
+    return view('paginas/ciudad');
 });
 
 Route::get('/donde/comer', function () {
-    return view('Donde Comer');
+    return view('paginas/donde-comer');
 });
 
 Route::get('/donde/dormir', function () {
-    return view('Donde dormir');
+  return view('paginas/donde-dormir');
+});
+Route::get('/eventos', function () {
+    return view('paginas/eventos');
+});
+Route::get('/contacto', function () {
+    return view('paginas/contacto');
+});
+
+Route::get('/turismo/activo', function () {
+    return view('paginas/turismo-activo');
+});
+Route::get('/turismo/laguna', function () {
+    return view('paginas/turismo-laguna');
+});
+Route::get('/turismo/religioso', function () {
+    return view('paginas/turismo-religioso');
+});
+Route::get('/turismo/reuniones', function () {
+    return view('paginas/turismo-reuniones');
+});
+Route::get('/turismo/rural', function () {
+    return view('paginas/turismo-rural');
 });
 
 Auth::routes();

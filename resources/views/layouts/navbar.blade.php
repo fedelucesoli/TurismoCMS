@@ -5,7 +5,7 @@
                     <span class="sr-only">Menu</span> Menu <i class="fa fa-bars"></i>
                 </button>
                 <div class="logo-menu">
-                  <a href="index.php">
+                  <a href="/">
                     <img src="{{asset('img/logo-municipiodelobos_blanco.png')}}" class="img-responsive" alt="Municipio de Lobos">
                   </a>
                 </div>
@@ -15,10 +15,10 @@
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="<?php echo (isset($seccion) && $seccion == '') ? 'active' : '';   ?>" href="index.php">INICIO</a>
+                        <a class="<?php echo (isset($seccion) && $seccion == '') ? 'active' : '';   ?>" href="/">INICIO</a>
                     </li>
                     <li>
-                        <a class="<?php echo (isset($seccion) && $seccion == 'ciudad') ? 'active' : '';   ?>" href="ciudad.php">CIUDAD</a>
+                        <a class="<?php echo (isset($seccion) && $seccion == 'ciudad') ? 'active' : '';   ?>" href="/ciudad">CIUDAD</a>
                     </li>
 
                     <!-- <li class="visible-xs visible-sm">
@@ -33,28 +33,28 @@
                                 <div class="yamm-content">
                                     <div class="row">
                                         <div class="col-md-3 col-xs-12 item">
-                                            <a href="turismo-laguna.php">
-                                            <img src="public/img/menu/laguna1.jpg" class="img-responsive hidden-xs " alt="Laguna De Lobos">
+                                            <a href="/turismo/laguna">
+                                            <img src="{{asset('img/menu/laguna1.jpg')}}" class="img-responsive hidden-xs " alt="Laguna De Lobos">
                                             <span>LAGUNA DE LOBOS</span></a>
                                         </div>
                                         <div class="col-md-3 col-xs-12 item">
-                                            <a href="turismo-rural.php">
-                                            <img src="public/img/menu/rural.jpg" class="img-responsive hidden-xs" alt="Turismo Rural">
+                                            <a href="/turismo/rural">
+                                            <img src="{{asset('img/menu/rural.jpg')}}" class="img-responsive hidden-xs" alt="Turismo Rural">
                                             <span>TURISMO RURAL</span></a>
                                         </div>
                                        <!--  <div class="col-md-3 col-xs-12 item">
-                                            <a href="turismo-religioso.php">
-                                            <img src="public/img/menu/religioso.jpg" class="img-responsive hidden-xs" alt="Turismo Religioso">
+                                            <a href="/turismo/religioso">
+                                            <img src="{{asset('img/menu/religioso.jpg')}}" class="img-responsive hidden-xs" alt="Turismo Religioso">
                                             <span>TURISMO RELIGIOSO</span></a>
                                         </div> -->
                                         <div class="col-md-3 col-xs-12 item">
-                                            <a href="turismo-activo.php">
-                                            <img src="public/img/menu/activo.jpg" class="img-responsive hidden-xs" alt="Turismo Activo">
+                                            <a href="/turismo/activo">
+                                            <img src="{{asset('img/menu/activo.jpg')}}" class="img-responsive hidden-xs" alt="Turismo Activo">
                                             <span>TURISMO ACTIVO</span></a>
                                         </div>
                                         <div class="col-md-3 col-xs-12 item">
-                                            <a href="turismo-reuniones.php">
-                                            <img src="public/img/menu/reuniones.jpg" class="img-responsive hidden-xs" alt="Turismo De Reuniones">
+                                            <a href="/turismo/reuniones">
+                                            <img src="{{asset('img/menu/reuniones.jpg')}}" class="img-responsive hidden-xs" alt="Turismo De Reuniones">
                                             <span>TURISMO DE REUNIONES</span></a>
                                         </div>
                                     </div>
@@ -63,16 +63,16 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="<?php echo (isset($seccion) && $seccion == 'comer') ? 'active' : '';   ?>" href="donde-comer.php">DÓNDE COMER?</a>
+                        <a class="<?php echo (isset($seccion) && $seccion == 'comer') ? 'active' : '';   ?>" href="/donde/comer">DÓNDE COMER?</a>
                     </li>
                     <li>
-                        <a class="<?php echo (isset($seccion) && $seccion == 'dormir') ? 'active' : '';   ?>" href="donde-dormir.php">DÓNDE DORMIR?</a>
+                        <a class="<?php echo (isset($seccion) && $seccion == 'dormir') ? 'active' : '';   ?>" href="/donde/dormir">DÓNDE DORMIR?</a>
                     </li>
                     <li>
-                        <a class="<?php echo (isset($seccion) && $seccion == 'eventos') ? 'active' : '';   ?>" href="eventos.php">EVENTOS</a>
+                        <a class="<?php echo (isset($seccion) && $seccion == 'eventos') ? 'active' : '';   ?>" href="/eventos">EVENTOS</a>
                     </li>
                     <li>
-                        <a class="<?php echo (isset($seccion) && $seccion == 'contacto') ? 'active' : '';   ?>" href="contacto.php">CONTACTO</a>
+                        <a class="<?php echo (isset($seccion) && $seccion == 'contacto') ? 'active' : '';   ?>" href="/contacto">CONTACTO</a>
                     </li>
 
                 </ul>

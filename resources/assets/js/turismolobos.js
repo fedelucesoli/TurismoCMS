@@ -1,26 +1,5 @@
 $(document).ready(function() {
 
-	var data = null;
-
-	var xhr = new XMLHttpRequest();
-	xhr.withCredentials = true;
-
-	xhr.addEventListener("readystatechange", function () {
-	  if (this.readyState === 4) {
-	    console.log(this.responseText);
-	  }
-	});
-
-	xhr.open("get", "http://localhost:8000/api/agenda");
-	xhr.setRequestHeader("cache-control", "no-cache");
-	xhr.setRequestHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-	// xhr.setRequestHeader("postman-token", "c94d4e5a-b672-b2a0-1eb6-6ad951294500");
-
-	xhr.send(data);
-
-
-
-
 	var nav = $('.navbar');
 
 	$(window).scroll(function () {

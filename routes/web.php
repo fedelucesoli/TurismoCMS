@@ -14,45 +14,19 @@
 Route::get('/', function () {
     return view('inicio');
 });
+Route::get('/ciudad', function () { return view('paginas/ciudad'); });
+Route::get('/donde/comer', function () { return view('paginas/donde-comer'); });
 
-Route::get('/ciudad', function () {
-    return view('paginas/ciudad');
-});
+Route::get('/donde/dormir', function () { return view('paginas/donde-dormir'); });
+Route::get('/eventos', function () { return view('paginas/eventos'); });
+Route::get('/contacto', function () { return view('paginas/contacto'); });
+Route::get('/turismo/activo', function () { return view('paginas/turismo-activo'); });
+Route::get('/turismo/laguna', function () { return view('paginas/turismo-laguna'); });
+Route::get('/turismo/religioso', function () { return view('paginas/turismo-religioso'); });
+Route::get('/turismo/reuniones', function () { return view('paginas/turismo-reuniones'); });
+Route::get('/turismo/rural', function () { return view('paginas/turismo-rural'); });
 
-Route::get('/donde/comer', function () {
-    return view('paginas/donde-comer');
-});
-
-Route::get('/donde/dormir', function () {
-  return view('paginas/donde-dormir');
-});
-Route::get('/eventos', function () {
-    return view('paginas/eventos');
-});
-Route::get('/contacto', function () {
-    return view('paginas/contacto');
-});
-
-Route::get('/turismo/activo', function () {
-    return view('paginas/turismo-activo');
-});
-Route::get('/turismo/laguna', function () {
-    return view('paginas/turismo-laguna');
-});
-Route::get('/turismo/religioso', function () {
-    return view('paginas/turismo-religioso');
-});
-Route::get('/turismo/reuniones', function () {
-    return view('paginas/turismo-reuniones');
-});
-Route::get('/turismo/rural', function () {
-    return view('paginas/turismo-rural');
-});
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin', 'Admin\DashboardController@index')->name('admin');
+Route::get('/admin/eventos', 'Admin\DashboardController@eventos')->name('admin.eventos');

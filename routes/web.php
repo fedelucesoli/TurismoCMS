@@ -29,4 +29,12 @@ Route::get('/turismo/rural', function () { return view('paginas/turismo-rural');
 
 Auth::routes();
 Route::get('/admin', 'Admin\DashboardController@index')->name('admin');
-Route::get('/admin/eventos', 'Admin\DashboardController@eventos')->name('admin.eventos');
+
+Route::get('/admin/eventos', 'Admin\EventoController@eventos')->name('admin.evento.list');
+Route::get('/admin/eventos/add', 'Admin\EventoController@eventosadd')->name('admin.evento.add');
+
+Route::get('/admin/comer', 'Admin\ComerController@comer')->name('admin.comer.list');
+Route::get('/admin/comer/add', 'Admin\ComerController@comeradd')->name('admin.comer.add');
+
+Route::get('/admin/dormir', 'Admin\DormirController@dormir')->name('admin.dormir.list');
+Route::get('/admin/dormir/add', 'Admin\DormirController@dormiradd')->name('admin.dormir.add');

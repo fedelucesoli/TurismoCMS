@@ -27,6 +27,15 @@ Route::get('/turismo/reuniones', function () { return view('paginas/turismo-reun
 Route::get('/turismo/rural', function () { return view('paginas/turismo-rural'); });
 
 
+
+// Auth::routes();
+
+Route::get('/admin', 'AdminController@index')->name('admin');
+Route::get('/admin/eventos', 'AdminController@eventos')->name('admin.eventos');
+Route::post('/admin/eventos', 'AdminController@postEventos');
+
+
+
 Auth::routes();
 Route::get('/admin', 'Admin\DashboardController@index')->name('admin');
 

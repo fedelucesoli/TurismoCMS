@@ -27,13 +27,15 @@ Route::get('/turismo/reuniones', function () { return view('paginas/turismo-reun
 Route::get('/turismo/rural', function () { return view('paginas/turismo-rural'); });
 
 
-<<<<<<< HEAD
+
 // Auth::routes();
 
 Route::get('/admin', 'AdminController@index')->name('admin');
 Route::get('/admin/eventos', 'AdminController@eventos')->name('admin.eventos');
 Route::post('/admin/eventos', 'AdminController@postEventos');
-=======
+
+
+
 Auth::routes();
 Route::get('/admin', 'Admin\DashboardController@index')->name('admin');
 
@@ -45,4 +47,3 @@ Route::get('/admin/comer/add', 'Admin\ComerController@comeradd')->name('admin.co
 
 Route::get('/admin/dormir', 'Admin\DormirController@dormir')->name('admin.dormir.list');
 Route::get('/admin/dormir/add', 'Admin\DormirController@dormiradd')->name('admin.dormir.add');
->>>>>>> origin/master

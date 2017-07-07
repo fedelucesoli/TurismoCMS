@@ -12,7 +12,7 @@ $(document).ready(function() {
 
 	$('.form-contacto').submit(function(event){
 		 $('.form-group').removeClass('has-error'); // remove the error class
-    	 $('.help-block').remove(); // remove the error text
+    	 $('.help-block').rede423762emove(); // remove the error text
 		 var formData = {
             'nombre'            : $('input[name=nombre]').val(),
             'email'             : $('input[name=email]').val(),

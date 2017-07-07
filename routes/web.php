@@ -49,10 +49,8 @@ Route::get('/turismo/rural', function () {
     return view('paginas/turismo-rural');
 });
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin', 'AdminController@index')->name('admin');
+Route::get('/admin/eventos', 'AdminController@eventos')->name('admin.eventos');
+Route::post('/admin/eventos', 'AdminController@postEventos');

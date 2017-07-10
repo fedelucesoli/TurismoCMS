@@ -13,7 +13,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Domine:400,700|Montserrat:300,400,700" rel="stylesheet" type='text/css'>
-    <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/turismolobos.css') }}" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -25,12 +26,15 @@
 
 </head>
 <body>
-<div class="wrapper">
+  <div id="wrapper" class="toggled">
   @include('admin.partials.nav')
-  <div id="page-wrapper">
-    @yield('content')
+  
+    <div class="container-fluid">
+      <div class="row">
+        @yield('content')
+      </div>
+    </div>
   </div>
-</div>
 
         {{-- <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
@@ -110,7 +114,12 @@
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}" charset="utf-8"></script>
-
+    <script>
+      $("#menu-toggle").click(function(e) {
+          e.preventDefault();
+          $("#wrapper").toggleClass("toggled");
+      });
+      </script>
 
 </body>
 </html>

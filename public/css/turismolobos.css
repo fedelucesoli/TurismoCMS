@@ -723,7 +723,7 @@ header .header-content {
 .mail:before,
 .horarios:before,
 .direccion:before {
-  font-family: FontAwesome;
+  font-family: 'FontAwesome';
   font-size: 20px;
   left: -26px;
   position: absolute;
@@ -764,7 +764,7 @@ header .header-content {
 .icon-social.facebook:before,
 .icon-social.twitter:before,
 .icon-social.instagram:before {
-  font-family: FontAwesome;
+  font-family: 'FontAwesome';
   font-size: 30px;
   left: 0;
   right: 0;
@@ -794,4 +794,14 @@ header .header-content {
 footer {
   border-top: 1px solid #df3837;
   padding: 15px 0;
+}
+footer .redes-sociales {
+  padding-top: 20px;
+  width: 50px;
+  display: inline-block;
+  text-align: right;
+}
+footer .icon-social {
+  height: 40px;
+  width: 40px;
 }

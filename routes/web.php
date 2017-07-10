@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('inicio');
+    return view('paginas/inicio');
 });
 Route::get('/ciudad', function () { return view('paginas/ciudad'); });
 Route::get('/donde/comer', function () { return view('paginas/donde-comer'); });
@@ -27,19 +27,10 @@ Route::get('/turismo/reuniones', function () { return view('paginas/turismo-reun
 Route::get('/turismo/rural', function () { return view('paginas/turismo-rural'); });
 
 
-
-// Auth::routes();
-
-Route::get('/admin', 'AdminController@index')->name('admin');
-Route::get('/admin/eventos', 'AdminController@eventos')->name('admin.eventos');
-Route::post('/admin/eventos', 'AdminController@postEventos');
-
-
-
 Auth::routes();
 Route::get('/admin', 'Admin\DashboardController@index')->name('admin');
 
-Route::get('/admin/eventos', 'Admin\EventoController@eventos')->name('admin.evento.list');
+Route::get('/admin/eventos', 'Admin\EventoController@index')->name('admin.evento.list');
 Route::get('/admin/eventos/add', 'Admin\EventoController@eventosadd')->name('admin.evento.add');
 
 Route::get('/admin/comer', 'Admin\ComerController@comer')->name('admin.comer.list');

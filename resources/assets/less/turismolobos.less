@@ -663,7 +663,7 @@ header {
     }
 
 & .tel:before, .mail:before, .horarios:before, .direccion:before{
-font-family: FontAwesome;
+font-family: 'FontAwesome';
 font-size: 20px;
 left: -26px;
 position: absolute;
@@ -688,9 +688,6 @@ color: @verde;
 .redes-sociales{
     text-align: center;
     color: @gray-base;
-    h3{
-
-    }
 }
 
 .icon-social{
@@ -708,7 +705,7 @@ color: @verde;
         }
     }
     &.facebook:before, &.twitter:before, &.instagram:before{
-        font-family: FontAwesome;
+        font-family: 'FontAwesome';
         font-size: 30px;
         left: 0;
         right: 0;
@@ -743,4 +740,15 @@ color: @verde;
 footer{
     border-top: 1px solid @theme-primary;
     padding: 15px 0;
+    & .redes-sociales{
+      padding-top: 20px;
+      width: 50px;
+      display: inline-block;
+      // float: right;
+      text-align: right;
+    }
+    & .icon-social{
+      height: 40px;
+      width: 40px;
+    }
 }

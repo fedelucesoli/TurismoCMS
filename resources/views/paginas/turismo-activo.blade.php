@@ -17,7 +17,7 @@
       <div class="col-md-10 col-md-offset-1">
         <div class="item-turismo">
           <div class="row">
-          <div class="mask-r" style="background-image: url('public/img/turismo/paracaidismo.jpg')"></div>
+          <div class="mask-r" style="background-image: url({{asset('img/turismo/paracaidismo.jpg')}})"></div>
             <div class="col-md-6 col-md-offset-6 contenido">
               <h2>Paracaidismo</h2>
               <p>Lobos es la Capital Nacional del Paracaidismo. Desde hace más de 35 años es sede del Club Escuela Paracaidistas Argentinos (CEPA), con instructores y aviones habilitados por la Fuerza Aérea Argentina. Se pueden realizar saltos de bautismos, tándem, y realizar cursos para principiantes y avanzados.
@@ -30,7 +30,7 @@
       <div class="col-md-10 col-md-offset-1">
         <div class="item-turismo">
           <div class="row">
-          <div class="mask-r" style="background-image: url('public/img/turismo/vuelos-bautismo.jpg')"></div>
+          <div class="mask-r" style="background-image: url({{asset('img/turismo/vuelos-bautismo.jpg')}}"></div>
 
             <div class="col-md-6 col-md-offset-6 contenido">
               <h2>Vuelo de bautismo</h2>
@@ -46,7 +46,7 @@
       <div class="col-md-10 col-md-offset-1">
         <div class="item-turismo">
           <div class="row">
-          <div class="mask-r" style="background-image: url('public/img/turismo/skate.jpg')"></div>
+          <div class="mask-r" style="background-image: url({{asset('img/turismo/skate.jpg')}})"></div>
 
             <div class="col-md-6 col-md-offset-6 contenido">
               <h2>Skate</h2>
@@ -61,7 +61,7 @@
       <div class="col-md-10 col-md-offset-1">
         <div class="item-turismo">
           <div class="row">
-          <div class="mask-r" style="background-image: url('public/img/turismo/kitesurf.jpg')"></div>
+          <div class="mask-r" style="background-image: url({{asset('img/turismo/kitesurf.jpg')}})"></div>
 
             <div class="col-md-6 col-md-offset-6 contenido">
               <h2>Kitesurf</h2>
@@ -76,7 +76,7 @@
       <div class="col-md-10 col-md-offset-1">
         <div class="item-turismo">
           <div class="row">
-          <div class="mask-r" style="background-image: url('public/img/turismo/polo.jpg')"></div>
+          <div class="mask-r" style="background-image: url({{asset('img/turismo/polo.jpg')}})"></div>
 
             <div class="col-md-6 col-md-offset-6 contenido">
               <h2>Polo</h2>
@@ -91,7 +91,7 @@
       <div class="col-md-10 col-md-offset-1">
         <div class="item-turismo">
           <div class="row">
-          <div class="mask-r" style="background-image: url('public/img/turismo/motonautica.jpg')"></div>
+          <div class="mask-r" style="background-image: url({{asset('img/turismo/motonautica.jpg')}})"></div>
 
             <div class="col-md-6 col-md-offset-6 contenido">
               <h2>Motonáutica</h2>

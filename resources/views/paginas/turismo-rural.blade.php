@@ -16,20 +16,20 @@
 
     <section class="container">
       <div class="row">
-        <div class="col-md-4 actividades" style="background-image: url('public/img/turismo/rural/2.jpg')"></div>
-        <div class="col-md-8 actividades" style="background-image: url('public/img/turismo/rural/1.jpg')"></div>
+        <div class="col-md-4 actividades" style="background-image: url({{asset('img/turismo/rural/2.jpg')}}"></div>
+        <div class="col-md-8 actividades" style="background-image: url({{asset('img/turismo/rural/1.jpg')}}"></div>
       </div>
       <div class="row">
-        <div class="col-md-6 actividades" style="background-image: url('public/img/turismo/rural/3.jpg')"></div>
-        <div class="col-md-6 actividades" style="background-image: url('public/img/turismo/rural/4.jpg')"></div>
+        <div class="col-md-6 actividades" style="background-image: url({{asset('img/turismo/rural/3.jpg')}}"></div>
+        <div class="col-md-6 actividades" style="background-image: url({{asset('img/turismo/rural/4.jpg')}}"></div>
       </div>
        <div class="row">
-      <div class="col-md-8 actividades" style="background-image: url('public/img/turismo/rural/5.jpg')"></div>
-      <div class="col-md-4 actividades" style="background-image: url('public/img/turismo/rural/6.jpg')"></div>
+      <div class="col-md-8 actividades" style="background-image: url({{asset('img/turismo/rural/5.jpg')}}"></div>
+      <div class="col-md-4 actividades" style="background-image: url({{asset('img/turismo/rural/6.jpg')}}"></div>
     </div>
     <div class="row">
-      <div class="col-md-6 actividades" style="background-image: url('public/img/turismo/rural/7.jpg')"></div>
-      <div class="col-md-6 actividades" style="background-image: url('public/img/turismo/rural/8.jpg')"></div>
+      <div class="col-md-6 actividades" style="background-image: url({{asset('img/turismo/rural/7.jpg')}}"></div>
+      <div class="col-md-6 actividades" style="background-image: url({{asset('img/turismo/rural/8.jpg')}}"></div>
     </div>
     </section>
 

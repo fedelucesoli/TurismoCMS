@@ -28,7 +28,7 @@
 <body>
   <div id="wrapper" class="toggled">
   @include('admin.partials.nav')
-  
+
     <div class="container-fluid">
       <div class="row">
         @yield('content')

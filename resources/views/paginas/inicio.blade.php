@@ -1,13 +1,12 @@
 @extends('layouts.app')
 
 @section('navbar')
-  @parent
-
+@parent
 @endsection
 
 @section('content')
   <header>
-       <div class="slider">
+       <div class="slider ">
          <ul>
            <li><div class="header-home cultura"><img src="{{ asset('img/senti-cultura.png') }}" alt="Sent&iacute; cultura!"></div></li>
            <li><div class="header-home adrenalina"><img src="{{ asset('img/senti-adrenalina.png') }}" alt="Sent&iacute; adrenalina!"></div></li>
@@ -16,16 +15,37 @@
          </ul>
        </div>
     </header>
-    <section class="promo"><div class="container">
 
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2 text-center">
-          <h1>Disfrut&aacute; de toda la semana en Lobos</h1>
-          <p class="lead">Descubrí la calidez que tiene Lobos en otoño, sentite bien recibido y acelerá tu pulso con la adrenalina de los deportes extremos. </p><h3> Elegí Lobos como tu destino.</h3>
+    <section>
+      <div class="container-fluid text-center">
+        <div class="col-md-4">QUE HACER?</div>
+        <div class="col-md-4">DÓNDE COMER?</div>
+        <div class="col-md-4">DÓNDE DORMIR?</div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <h1>EXPLORE LUGARES PARA VISITAR</h1>
+            <p class="">Las opciones para viajar por Australia son tan diversas como el país en sí. Descubra las ciudades, estados y territorios de Australia y sus exclusivos destinos y eventos icónicos.</p>
+          </div>
+          <div class="col-md-6"></div>
+          <div class="col-md-6"></div>
         </div>
       </div>
-  </div>
-  </section>
+    </section>
+
+    <section class="promo">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2 text-center">
+            <h1>Disfrut&aacute; de toda la semana en Lobos</h1>
+            <p class="lead">Descubrí la calidez que tiene Lobos en otoño, sentite bien recibido y acelerá tu pulso con la adrenalina de los deportes extremos. </p><h3> Elegí Lobos como tu destino.</h3>
+          </div>
+        </div>
+      </div>
+    </section>
 
   <section class="video text-center">
   <div class="container">

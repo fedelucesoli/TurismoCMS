@@ -30,8 +30,8 @@
 
 </head>
 <body>
-  @component('layouts.navbar')
-  @endcomponent
+  @include('layouts.navbar')
+
 
     {{-- <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
@@ -90,10 +90,9 @@
             </div>
         </nav> --}}
 
-        @yield('content')
+    @yield('content')
+    @include('layouts.footer')
 
-        @component('layouts.footer')
-        @endcomponent
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
@@ -102,7 +101,7 @@
     <script src="{{ asset('js/bootstrap.min.js') }}" charset="utf-8"></script>
     <script>
 		jQuery(document).ready(function($) {
-			var slider = $('.slider').unslider({ autoplay: true, delay: 4000, arrows: false, nav: false, infinite: true, speed: 1800});
+			var slider = $('.slider').unslider({ autoplay: true, delay: 4000, arrows: false, nav: false, infinite: true, speed: 900});
 
 		});
     </script>

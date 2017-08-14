@@ -263,8 +263,9 @@ header li {
   padding: 0;
 }
 header .header-home {
-  height: 90vh;
+  height: 500px;
   width: 100%;
+  margin: 50px 0 100px 0;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -276,8 +277,8 @@ header .header-home {
 @media (max-width: 768px) {
   header .header-home img {
     position: relative;
-    width: 80%;
-    left: 10%;
+    width: 100%;
+    left: 0%;
   }
   header .header-home.tradicion {
     background-position: 25% center !important;
@@ -794,7 +795,7 @@ header .header-content {
   content: '\f16d';
 }
 footer {
-  border-top: 1px solid #df3837;
+  background-color: white;
   padding: 15px 0;
 }
 footer .redes-sociales {

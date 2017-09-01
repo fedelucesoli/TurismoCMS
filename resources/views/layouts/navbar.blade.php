@@ -11,19 +11,14 @@
                 </div>
             </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="<?php echo (isset($seccion) && $seccion == '') ? 'active' : '';   ?>" href="/">INICIO</a>
+                    <li class="{{ Request::is('/') ? 'active' : '' }}">
+                        <a href="/">INICIO</a>
                     </li>
-                    <li>
-                        <a class="<?php echo (isset($seccion) && $seccion == 'ciudad') ? 'active' : '';   ?>" href="/ciudad">CIUDAD</a>
+                    <li class="{{ Request::is('ciudad') ? 'active' : '' }}">
+                        <a href="/ciudad">CIUDAD</a>
                     </li>
-
-                    <!-- <li class="visible-xs visible-sm">
-                        <a class="<?php echo (isset($seccion) && $seccion == 'quehacer') ? 'active' : '';   ?>" href="quehacer.php">QUE HACER?</a>
-                    </li> -->
 
                     <li class="dropdown yamm-fw ">
                       <a href="#" data-toggle="dropdown" class="dropdown-toggle <?php echo (isset($seccion) && $seccion == 'hacer') ? 'active' : '';   ?>" aria-expanded="true">QUÉ HACER?<b class="caret"></b></a>
@@ -62,16 +57,16 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
+                    <li class="{{ Request::is('donde/comer') ? 'active' : '' }}">
                         <a class="<?php echo (isset($seccion) && $seccion == 'comer') ? 'active' : '';   ?>" href="/donde/comer">DÓNDE COMER?</a>
                     </li>
-                    <li>
-                        <a class="<?php echo (isset($seccion) && $seccion == 'dormir') ? 'active' : '';   ?>" href="/donde/dormir">DÓNDE DORMIR?</a>
+                    <li class="{{ Request::is('donde/dormir') ? 'active' : '' }}">
+                        <a href="/donde/dormir">DÓNDE DORMIR?</a>
                     </li>
-                    <li>
+                    <li class="{{ Request::is('eventos') ? 'active' : '' }}">
                         <a class="<?php echo (isset($seccion) && $seccion == 'eventos') ? 'active' : '';   ?>" href="/eventos">EVENTOS</a>
                     </li>
-                    <li>
+                    <li class="{{ Request::is('contacto') ? 'active' : '' }}" >
                         <a class="<?php echo (isset($seccion) && $seccion == 'contacto') ? 'active' : '';   ?>" href="/contacto">CONTACTO</a>
                     </li>
 

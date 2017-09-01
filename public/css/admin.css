@@ -74,9 +74,9 @@ body {
   color: #fff;
   background: none;
 }
-.navbar {
+.navbar-admin {
+  margin-top: 50px;
   margin-bottom: 0;
-  background-color: rgba(0, 0, 0, 0.18) !important;
   border-radius: 0;
 }
 @media (min-width: 768px) {

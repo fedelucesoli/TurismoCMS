@@ -2,7 +2,7 @@
 <div class="container">
 
     <div class="col-md-4"><img src="{{asset('img/logo-direccion.svg')}}" alt="Dirección de Turismo" class="img-responsive"></div>
-    <div class="col-md-8">
+    <div class="col-md-8 text-right">
 
       <a href="https://facebook.com/turismo.lobos" target="_blank">
         <div class="redes-sociales">

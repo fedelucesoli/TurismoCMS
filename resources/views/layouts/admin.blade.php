@@ -26,15 +26,36 @@
 
 </head>
 <body>
-  <div id="wrapper" class="toggled">
-  @include('admin.partials.nav')
+  @include('layouts.navbar')
 
-    <div class="container-fluid">
+  {{-- @include('admin.partials.nav') --}}
+
+    <div class="container" style="margin-top: 150px;">
       <div class="row">
-        @yield('content')
+        <div class="col-md-2">
+          <div class="list-group">
+            <a href="{{route('admin.evento.list')}}" class="list-group-item">
+              Eventos
+            </a>
+            <a href="#" class="list-group-item">Gastronomia</a>
+            <a href="#" class="list-group-item">Alojamiento</a>
+            <a href="#" class="list-group-item">Lugares</a>
+
+
+          </div>
+        </div>
+        <div class="col-md-10">
+          <div class="panel panel-default">
+            <div class="panel-heading">TurismoCMS</div>
+            <div class="panel-body">
+              @yield('content')
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
-  </div>
+
 
         {{-- <nav class="navbar navbar-default navbar-static-top">
             <div class="container">

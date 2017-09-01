@@ -1,13 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+  <div class="container" style="margin-top: 150px; height: 100%; " >
+
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+                <div class="panel-heading">Registro</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
+                    {{-- <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}"> --}}
+                    <form class="form-horizontal" role="form" method="POST" action="">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">

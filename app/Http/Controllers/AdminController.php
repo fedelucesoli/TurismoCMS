@@ -25,8 +25,4 @@ class AdminController extends Controller
     {
         return view('home');
     }
-    public function Eventos()
-    {
-        return view('admin.eventos');
-    }
 }

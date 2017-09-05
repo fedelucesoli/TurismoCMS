@@ -15,20 +15,49 @@ class ComerController extends Controller
      */
     public function index()
     {
-      // $data['gastronomia'] = Comer::all();
-      $data['gastronomia'] = 'Comer::all()';
-      return view('admin/gastronomia/show', $data);
+      $data['comer'] = Comer::all();
+      return view('admin.gastronomia.show', $data);
     }
 
     public function create()
     {
-        //
+        $data['local'] = new Comer;
+        return view('admin.gastronomia.form', $data);
     }
 
 
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request){
+      $rules = array(
+        'nombre'            => 'required|max:140',
+        'direccion'         => 'required',
+        'localidad'         => 'required',
+        'categoria'         => 'required',
+      );
+      $validator = $this->validate($request, $rules);
+
+      $item = new Comer;
+      $item->nombre = $request->nombre;
+      $item->direccion = $request->direccion;
+      $item->localidad = $request->localidad;
+      $item->telefono = $request->telefono;
+      $item->web = $request->web;
+      $item->email = $request->email;
+      $item->lng = $request->lng;
+      $item->lat = $request->lat;
+      $item->categoria = $request->categoria;
+      $item->estrellas = $request->estrellas;
+      $item->activo = 0;
+      $item->id_usuario = \Auth::user()->id;
+      $item->save();
+
+      if ($item->save()) {
+        Session::flash('status', 'Creado');
+        $request->session()->flash('status', 'Task was successful!');
+      }else{
+        $request->session()->flash('status', 'Task was successful!');
+      }
+        return redirect()->route('comer.index');
+
     }
 
 

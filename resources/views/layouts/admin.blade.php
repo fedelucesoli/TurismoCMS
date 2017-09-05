@@ -27,17 +27,22 @@
 </head>
 <body>
   @include('layouts.navbar')
+  @if (Session::has('message'))
+    <div class="alert alert-success" role="alert">
+{{ session('status') }}
+    </div>
 
+  @endif
   {{-- @include('admin.partials.nav') --}}
 
     <div class="container" style="margin-top: 150px;">
       <div class="row">
         <div class="col-md-2">
           <div class="list-group">
-            <a href="{{route('admin.evento.list')}}" class="list-group-item">
+            <a href="{{route('admin.evento.index')}}" class="list-group-item">
               Eventos
             </a>
-            <a href="{{route('admin.comer.list')}}" class="list-group-item">Gastronomia</a>
+            <a href="{{route('admin.comer.index')}}" class="list-group-item">Gastronomia</a>
             <a href="#" class="list-group-item">Alojamiento</a>
             <a href="#" class="list-group-item">Lugares</a>
 

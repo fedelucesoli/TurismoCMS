@@ -18,19 +18,20 @@ class CreateComersTable extends Migration
             $table->string('nombre');
             $table->string('direccion');
             $table->string('localidad');
-            $table->string('telefono');
-            $table->string('web');
-            $table->string('email');
+            $table->string('telefono')->nullable()	;
+            $table->string('web')->nullable()	;
+            $table->string('email')->nullable()	;
 
-            $table->integer('votos');
-            $table->integer('votantes');
+            // $table->integer('votos');
+            // $table->integer('votantes');
 
-            $table->decimal('lng', 11, 7);
-            $table->decimal('lat', 11, 7);
+            $table->decimal('lng', 11, 7)->nullable()	;
+            $table->decimal('lat', 11, 7)->nullable()	;
 
-            $table->string('categoria');
-            $table->string('estrellas');
+            $table->string('categoria')->nullable()	;
+            $table->string('estrellas')->nullable()	;
             $table->boolean('activo');
+            $table->boolean('id_usuario');
 
             $table->timestamps();
         });

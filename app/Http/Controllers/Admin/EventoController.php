@@ -16,7 +16,7 @@ class EventoController extends Controller
     public function index()
     {
       $data['eventos'] = Evento::all();
-        return view('admin/eventos', $data);
+      return view('admin/eventos/eventos', $data);
     }
 
     /**

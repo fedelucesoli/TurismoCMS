@@ -15,70 +15,41 @@ class ComerController extends Controller
      */
     public function index()
     {
-        //
+      // $data['gastronomia'] = Comer::all();
+      $data['gastronomia'] = 'Comer::all()';
+      return view('admin/gastronomia/show', $data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Comer  $comer
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Comer $comer)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Comer  $comer
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Comer $comer)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Comer  $comer
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, Comer $comer)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Comer  $comer
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Comer $comer)
     {
         //

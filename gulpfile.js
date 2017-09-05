@@ -101,5 +101,6 @@ gulp.task('dev', ['connect-sync', 'less', 'lessadmin', 'minify-css', 'minify-js'
     gulp.watch('resources/assets/js/*.js', ['minify-js']);
     // Reloads the browser whenever HTML or JS files change
     gulp.watch('resources/views/*/*.php', browserSync.reload);
+    gulp.watch('resources/views/*/*/*.php', browserSync.reload);
     gulp.watch('resources/views/*.php', browserSync.reload);
 });

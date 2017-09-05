@@ -37,7 +37,7 @@
             <a href="{{route('admin.evento.list')}}" class="list-group-item">
               Eventos
             </a>
-            <a href="#" class="list-group-item">Gastronomia</a>
+            <a href="{{route('admin.comer.list')}}" class="list-group-item">Gastronomia</a>
             <a href="#" class="list-group-item">Alojamiento</a>
             <a href="#" class="list-group-item">Lugares</a>
 
@@ -46,7 +46,7 @@
         </div>
         <div class="col-md-10">
           <div class="panel panel-default">
-            <div class="panel-heading">TurismoCMS</div>
+            {{-- <div class="panel-heading">TurismoCMS</div> --}}
             <div class="panel-body">
               @yield('content')
             </div>

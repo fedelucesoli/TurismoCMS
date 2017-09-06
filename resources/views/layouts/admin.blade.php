@@ -27,15 +27,12 @@
 </head>
 <body>
   @include('layouts.navbar')
-  @if (Session::has('message'))
-    <div class="alert alert-success" role="alert">
-{{ session('status') }}
-    </div>
 
-  @endif
+
   {{-- @include('admin.partials.nav') --}}
 
-    <div class="container" style="margin-top: 150px;">
+    <div class="container" style="margin-top: 120px;">
+
       <div class="row">
         <div class="col-md-2">
           <div class="list-group">
@@ -50,6 +47,12 @@
           </div>
         </div>
         <div class="col-md-10">
+          @if (Session::has('status'))
+            <div class="alert alert-success" role="alert">
+               <a class="close" data-dismiss="alert">×</a>
+                <strong>Heads Up!</strong> {!!Session::get('status')!!}
+            </div>
+          @endif
           <div class="panel panel-default">
             {{-- <div class="panel-heading">TurismoCMS</div> --}}
             <div class="panel-body">
@@ -145,7 +148,7 @@
           e.preventDefault();
           $("#wrapper").toggleClass("toggled");
       });
-      </script>
-
+    </script>
+    @stack('scripts')
 </body>
 </html>

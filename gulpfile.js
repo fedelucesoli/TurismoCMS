@@ -65,7 +65,7 @@ gulp.task('default', ['less', 'minify-css', 'minify-js']);
 
 gulp.task('connect-sync', function () {
     connect.server({
-        port: 8069,
+        port: 8080,
         base: 'public',
         open: true
     });
@@ -75,7 +75,7 @@ gulp.task('connect-sync', function () {
 
     browserSync.init({
         notify: false,
-        port  : 8069,
+        port  : 8080,
         server: {
             baseDir   : ['public'],
             middleware: function (req, res, next) {

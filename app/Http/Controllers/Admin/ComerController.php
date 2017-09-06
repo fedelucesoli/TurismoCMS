@@ -6,6 +6,8 @@ use App\Comer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use Auth;
+
 class ComerController extends Controller
 {
     /**
@@ -47,16 +49,15 @@ class ComerController extends Controller
       $item->categoria = $request->categoria;
       $item->estrellas = $request->estrellas;
       $item->activo = 0;
-      $item->id_usuario = \Auth::user()->id;
+      $item->id_usuario = Auth::user()->id;
       $item->save();
 
       if ($item->save()) {
-        Session::flash('status', 'Creado');
         $request->session()->flash('status', 'Task was successful!');
       }else{
         $request->session()->flash('status', 'Task was successful!');
       }
-        return redirect()->route('comer.index');
+        return redirect()->route('admin.comer.index');
 
     }
 

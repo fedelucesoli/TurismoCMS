@@ -21,6 +21,7 @@ class CreateComersTable extends Migration
             $table->string('telefono')->nullable()	;
             $table->string('web')->nullable()	;
             $table->string('email')->nullable()	;
+            $table->string('horarios')->nullable()	;
 
             // $table->integer('votos');
             // $table->integer('votantes');

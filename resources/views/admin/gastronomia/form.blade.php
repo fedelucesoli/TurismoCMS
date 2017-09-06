@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="col-md-12">
-    <h1>Nuevo</h1><hr>
+    <h1>Nuevo Restaurant</h1><hr>
   </div>
 <div class="col-md-12">
   {{ Form::open([
@@ -19,6 +19,13 @@
       @if ($errors->has('nombre'))<p class="help-block">{{ $errors->first('nombre') }}</p>@endif
     </div>
   </div>
+  <div class="form-group @if ($errors->has('categoria')) has-error @endif">
+    {{ Form::label('categoria', "Categoria", ['class' => 'control-label col-sm-2']) }}
+    <div class="col-sm-6">
+      {{ Form::text('categoria', null, array('class' => 'form-control')) }}
+      @if ($errors->has('categoria'))<p class="help-block">{{ $errors->first('categoria') }}</p>@endif
+    </div>
+  </div>
 
   <div class="form-group @if ($errors->has('direccion')) has-error @endif">
     {{ Form::label('direccion', "Dirección", ['class' => 'control-label col-sm-2']) }}
@@ -32,6 +39,16 @@
     <div class="col-sm-6">
       {{ Form::text('localidad', null, array('class' => 'form-control')) }}
       @if ($errors->has('localidad'))<p class="help-block">{{ $errors->first('localidad') }}</p>@endif
+    </div>
+  </div>
+
+@include('admin.forms.mapa')
+
+  <div class="form-group @if ($errors->has('horarios')) has-error @endif">
+    {{ Form::label('horarios', "Horarios", ['class' => 'control-label col-sm-2']) }}
+    <div class="col-sm-6">
+      {{ Form::text('horarios', null, array('class' => 'form-control')) }}
+      @if ($errors->has('horarios'))<p class="help-block">{{ $errors->first('horarios') }}</p>@endif
     </div>
   </div>
   <div class="form-group @if ($errors->has('telefono')) has-error @endif">
@@ -57,13 +74,7 @@
     </div>
   </div>
 
-  <div class="form-group @if ($errors->has('categoria')) has-error @endif">
-    {{ Form::label('categoria', "Categoria", ['class' => 'control-label col-sm-2']) }}
-    <div class="col-sm-6">
-      {{ Form::text('categoria', null, array('class' => 'form-control')) }}
-      @if ($errors->has('categoria'))<p class="help-block">{{ $errors->first('categoria') }}</p>@endif
-    </div>
-  </div>
+
 
   <hr>
 

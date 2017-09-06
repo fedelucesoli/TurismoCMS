@@ -20,36 +20,46 @@
 <div class="col-md-12">
 
 
-    <table id="tabla" class="table table-striped " cellspacing="0" width="100%">
+    <table id="" class="table table-striped" cellspacing="0" width="100%">
         <thead>
             <tr>
               <th>#</th>
               <th>Nombre</th>
+              <th>Categoria</th>
               <th>Activo</th>
+              <th>Acciones</th>
             </tr>
         </thead>
-        <tfoot>
+        {{-- <tfoot>
             <tr>
               <th>#</th>
               <th>Nombre</th>
+              <th>Categoria</th>
               <th>Activo</th>
+              <th>Acciones</th>
             </tr>
-        </tfoot>
+        </tfoot> --}}
         <tbody>
-          @foreach ($comer as $key)
+          @foreach ($comer as $item)
             <tr>
-              <td>{{$key->id}}</td>
-              <td>{{$key->nombre}}</td>
-              <td>{{$key->direccion}}</td>
-              {{-- <td></td> --}}
+              <td scope="row">{{$item->id}}</td>
+              <td><a href="#">{{$item->nombre}}</a></td>
+              <td class="">{{$item->categoria}}</td>
+              <td>
+                @if ($item->activo)
+                  <a href="" data-id ="{{$item->id}}" class="btn btn-success btn-xs estado" style="color: green"><span class="fa fa-toggle-on fa-lg"></span></a> &nbsp;
+                @else
+                  <a href="" data-id ="{{$item->id}}" class="btn btn-success btn-xs estado" style="color: green"><span class="fa fa-toggle-off fa-lg"></span></a> &nbsp;
+                @endif
+              </td>
+              <td class="text-center">
+
+                <a href="{{route('admin.comer.edit', $item)}}" class="btn btn-warning btn-xs"><span class="fa fa-pencil fa-lg"></span></a> &nbsp;
+                <a href="eliminar" data-id="{{$item->id}}" class="btn btn-danger btn-xs eliminar"><span class="fa fa-trash fa-lg "></span></a>
+              </td>
             </tr>
           @endforeach
-            <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
 
-            </tr>
 
         </tbody>
     </table>

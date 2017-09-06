@@ -16,13 +16,13 @@
        </div>
     </header>
 
-    <section>
+    {{-- <section>
       <div class="container-fluid text-center">
         <div class="col-md-4">QUE HACER?</div>
         <div class="col-md-4">DÓNDE COMER?</div>
         <div class="col-md-4">DÓNDE DORMIR?</div>
       </div>
-    </section>
+    </section> --}}
     <section>
       <div class="container">
         <div class="row">
@@ -47,10 +47,10 @@
       </div>
     </section>
 
-  <section class="video text-center">
+  <section class="video text-center" >
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12" style="    height: 500px;">
   <iframe width="100%" height="100%" src="https://www.youtube.com/embed/srsKUMdJ2Is?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
       </div>

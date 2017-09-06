@@ -65,9 +65,10 @@ gulp.task('default', ['less', 'minify-css', 'minify-js']);
 
 gulp.task('connect-sync', function () {
     connect.server({
-        port: 8080,
+        port: 8079,
         base: 'public',
-        open: true
+        open: false,
+        debug: true
     });
 
     var proxy   = httpProxy.createProxyServer({});
@@ -75,7 +76,7 @@ gulp.task('connect-sync', function () {
 
     browserSync.init({
         notify: false,
-        port  : 8080,
+        port  : 8079,
         server: {
             baseDir   : ['public'],
             middleware: function (req, res, next) {
@@ -89,9 +90,10 @@ gulp.task('connect-sync', function () {
             }
         }
     });
-
-
 });
+
+
+
 
 // Dev task with browserSync
 gulp.task('dev', ['connect-sync', 'less', 'lessadmin', 'minify-css', 'minify-js'], function() {

@@ -18,7 +18,7 @@ $('tr[data-href]').on("click", function() {
 <div class="col-md-12">
 
 
-    <table class="table table-striped" cellspacing="0" width="100%" style="margin-top:25px;">
+    <table class="table table-hover" cellspacing="0" width="100%" style="margin-top:25px;">
         <thead>
             <tr>
               <th style="width:7%"><h5>#</h5></th>

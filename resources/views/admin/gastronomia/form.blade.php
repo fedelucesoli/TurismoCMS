@@ -6,7 +6,7 @@
   </div>
 <div class="col-md-12">
   {{ Form::open([
-    'url' => 'admin/dormir',
+    'url' => 'admin/comer',
     'files' => true,
     'class' => 'form-horizontal',
     'method' => 'POST'

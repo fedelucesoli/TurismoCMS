@@ -1,86 +1,105 @@
 @extends('layouts.admin')
 @push('scripts')
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
-  <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" charset="utf-8"></script>
-  <script type="text/javascript">
-  $(document).ready(function() {
-    $('#tabla').DataTable();
-  } );
-  </script>
+
 @endpush
 @section('content')
-<div class="col-md-6">
-  <h1>Gastronomia</h1>
+<div class="col-md-2" style="margin-bottom: 25px;">
+  <a type="button" class="btn btn-default" style="" href="{{route('admin.comer.index')}}"  >Volver</a>
 </div>
-<div class="col-md-6 text-right">
-  {{-- <button type="button" class="btn btn-primary" data-toggle="modal" style="margin-top: 20px;" data-target="#add-evento">Agregar Local Gastronomico</button> --}}
-  <a type="button" class="btn btn-primary" style="margin-top: 20px;" href="{{route('admin.comer.create')}}"  >Agregar Local Gastronomico</a>
+<div class="col-md-10 text-right">
+  <bold>{{date_format($item->created_at,"d/m/Y - H:i") }}</bold>
+
 </div>
-<hr>
+
+<div class="col-md-10 col-md-offset-2">
+
+  <h4 class="text-muted">{{$item->categoria}}</h4>
+  <h1>{{$item->nombre}}</h1>
+  <hr>
+</div>
 <div class="col-md-12">
+  {{ Form::open([
+    'route' => ["admin.comer.update", $item->id],
+    'files' => true,
+    'class' => 'form-horizontal',
+    'method' => 'PUT'
+    ])}}
+    {{ Form::hidden('_method', 'PUT')}}
+  <div class="form-group @if ($errors->has('nombre')) has-error @endif">
+    {{ Form::label('nombre', "Nombre", ['class' => 'control-label col-sm-2']) }}
+    <div class="col-sm-10">
+      {{ Form::text('nombre', $item->nombre, array('class' => 'form-control')) }}
+      @if ($errors->has('nombre'))<p class="help-block">{{ $errors->first('nombre') }}</p>@endif
+    </div>
+  </div>
+  <div class="form-group @if ($errors->has('categoria')) has-error @endif">
+    {{ Form::label('categoria', "Categoria", ['class' => 'control-label col-sm-2']) }}
+    <div class="col-sm-10">
+      {{ Form::text('categoria', $item->categoria, array('class' => 'form-control')) }}
+      @if ($errors->has('categoria'))<p class="help-block">{{ $errors->first('categoria') }}</p>@endif
+    </div>
+  </div>
+
+  <div class="form-group @if ($errors->has('direccion')) has-error @endif">
+    {{ Form::label('direccion', "Dirección", ['class' => 'control-label col-sm-2']) }}
+    <div class="col-sm-10">
+      {{ Form::text('direccion', $item->direccion, array('class' => 'form-control')) }}
+      @if ($errors->has('direccion'))<p class="help-block">{{ $errors->first('direccion') }}</p>@endif
+    </div>
+  </div>
+  <div class="form-group @if ($errors->has('localidad')) has-error @endif">
+    {{ Form::label('localidad', "Localidad", ['class' => 'control-label col-sm-2']) }}
+    <div class="col-sm-10">
+      {{ Form::text('localidad', $item->localidad, array('class' => 'form-control')) }}
+      @if ($errors->has('localidad'))<p class="help-block">{{ $errors->first('localidad') }}</p>@endif
+    </div>
+  </div>
+
+@include('admin.forms.mapa')
+
+  <div class="form-group @if ($errors->has('horarios')) has-error @endif">
+    {{ Form::label('horarios', "Horarios", ['class' => 'control-label col-sm-2']) }}
+    <div class="col-sm-10">
+      {{ Form::text('horarios', $item->horarios, array('class' => 'form-control')) }}
+      @if ($errors->has('horarios'))<p class="help-block">{{ $errors->first('horarios') }}</p>@endif
+    </div>
+  </div>
+  <div class="form-group @if ($errors->has('telefono')) has-error @endif">
+    {{ Form::label('telefono', "Teléfono", ['class' => 'control-label col-sm-2']) }}
+    <div class="col-sm-10">
+      {{ Form::text('telefono', $item->telefono, array('class' => 'form-control')) }}
+      @if ($errors->has('telefono'))<p class="help-block">{{ $errors->first('telefono') }}</p>@endif
+    </div>
+  </div>
+
+  <div class="form-group @if ($errors->has('web')) has-error @endif">
+    {{ Form::label('web', "Web", ['class' => 'control-label col-sm-2']) }}
+    <div class="col-sm-10">
+      {{ Form::text('web', $item->web, array('class' => 'form-control')) }}
+      @if ($errors->has('web'))<p class="help-block">{{ $errors->first('web') }}</p>@endif
+    </div>
+  </div>
+  <div class="form-group @if ($errors->has('email')) has-error @endif">
+    {{ Form::label('email', "Email", ['class' => 'control-label col-sm-2']) }}
+    <div class="col-sm-10">
+      {{ Form::text('email', $item->email, array('class' => 'form-control')) }}
+      @if ($errors->has('email'))<p class="help-block">{{ $errors->first('email') }}</p>@endif
+    </div>
+  </div>
 
 
-    <table id="" class="table table-striped" cellspacing="0" width="100%">
-        <thead>
-            <tr>
-              <th>#</th>
-              <th>Nombre</th>
-              <th>Categoria</th>
-              <th>Activo</th>
-              <th>Acciones</th>
-            </tr>
-        </thead>
-        {{-- <tfoot>
-            <tr>
-              <th>#</th>
-              <th>Nombre</th>
-              <th>Categoria</th>
-              <th>Activo</th>
-              <th>Acciones</th>
-            </tr>
-        </tfoot> --}}
-        <tbody>
-          @foreach ($comer as $item)
-            <tr>
-              <td scope="row">{{$item->id}}</td>
-              <td><a href="#">{{$item->nombre}}</a></td>
-              <td class="">{{$item->categoria}}</td>
-              <td>
-                @if ($item->activo)
-                  <a href="" data-id ="{{$item->id}}" class="btn btn-success btn-xs estado" style="color: green"><span class="fa fa-toggle-on fa-lg"></span></a> &nbsp;
-                @else
-                  <a href="" data-id ="{{$item->id}}" class="btn btn-success btn-xs estado" style="color: green"><span class="fa fa-toggle-off fa-lg"></span></a> &nbsp;
-                @endif
-              </td>
-              <td class="text-center">
 
-                <a href="{{route('admin.comer.edit', $item)}}" class="btn btn-warning btn-xs"><span class="fa fa-pencil fa-lg"></span></a> &nbsp;
-                <a href="eliminar" data-id="{{$item->id}}" class="btn btn-danger btn-xs eliminar"><span class="fa fa-trash fa-lg "></span></a>
-              </td>
-            </tr>
-          @endforeach
+  <hr>
+
+  <div class="form-group">
+   <div class="col-sm-10 col-sm-offset-2 text-right">
+    <a href="{{url()->previous()}}" class="btn btn-primary">Cancelar</a>
+    {{ Form::submit('Guardar', ['class'=>'btn btn-danger'] )}}
+   </div>
+  </div>
 
 
-        </tbody>
-    </table>
-    {{-- <thead>
-      <tr>
-        <th>#</th>
-        <th>Nombre</th>
-        <th>Activo</th>
-      </tr>
-    </thead>
-    <tbody>
-      @foreach ($comer as $key)
-        <tr>
-          <td>{{$key->id}}</td>
-          <td>{{$key->nombre}}</td>
-          <td>{{$key->direccion}}</td>
-          <td></td>
-        </tr>
-      @endforeach
-    </tbody> --}}
-  </table>
+  {{ Form::close() }}
 
 </div>
 <div class="modal fade" tabindex="-1" role="dialog" id="add-evento">

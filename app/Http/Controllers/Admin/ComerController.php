@@ -137,6 +137,8 @@ class ComerController extends Controller
         $item->lat = $request->lat;
         $item->categoria = $request->categoria;
         $item->horarios = $request->horarios;
+        // TODO activar o no
+        
         $item->activo = 0;
         $item->id_usuario = $request->user()->id;
         $item->save();

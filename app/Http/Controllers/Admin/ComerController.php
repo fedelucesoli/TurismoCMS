@@ -77,14 +77,15 @@ class ComerController extends Controller
     }
 
 
-    public function show(Comer $comer)
-    {
+    public function show(Comer $comer){
+      
       $data['item'] = Comer::find($comer)->first();
+
       if(is_null($data['item'])){
         $request->session()->flash('status', ':( No se encuentra ese registro!');
-
         return redirect()->route('admin.comer.index');
       }
+
       $latlng= $data['item']->lat . ', '. $data['item']->lng;
       $config = array();
       $config['center'] = $latlng;
@@ -138,7 +139,7 @@ class ComerController extends Controller
         $item->categoria = $request->categoria;
         $item->horarios = $request->horarios;
         // TODO activar o no
-        
+
         $item->activo = 0;
         $item->id_usuario = $request->user()->id;
         $item->save();

@@ -2,7 +2,7 @@
 
 <div class="form-group ">
  <label class="control-label col-sm-2" for="ubicacion">Ubicacion</label>
- <div class="col-sm-10">
+ <div class="col-sm-8">
    {!!$map['html']!!}
    @if (isset($item))
      {{ Form::hidden('lat', $item->lat, array('id' => 'lat' ))}}

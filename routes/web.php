@@ -35,7 +35,4 @@ Route::get('/admin', 'Admin\DashboardController@index')->name('admin');
 
 Route::resource('/admin/comer', 'Admin\ComerController', ['as' => 'admin']);
 Route::resource('/admin/evento', 'Admin\EventoController', ['as' => 'admin']);
-
-// Route::get('/admin/comer', 'Admin\ComerController@index')->name('admin.comer.list');
-
-Route::get('/admin/dormir', 'Admin\DormirController@dormir')->name('admin.dormir.list');
+Route::resource('/admin/dormir', 'Admin\DormirController', ['as' => 'admin']);

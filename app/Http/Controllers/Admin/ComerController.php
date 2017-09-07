@@ -12,10 +12,9 @@ use Illuminate\Support\Facades\Auth;
 
 class ComerController extends Controller
 {
-  public function __construct()
-{
-  $this->middleware('auth');
-}
+  public function __construct(){
+    $this->middleware('auth');
+  }
     public function index()
     {
       $data['comer'] = Comer::all();
@@ -63,7 +62,7 @@ class ComerController extends Controller
       $item->categoria = $request->categoria;
       $item->estrellas = $request->estrellas;
       $item->horarios = $request->horarios;
-      
+
       $item->activo = 0;
       $item->id_usuario = $request->user()->id;
       $item->save();

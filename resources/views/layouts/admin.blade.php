@@ -40,7 +40,7 @@
               Eventos
             </a>
             <a href="{{route('admin.comer.index')}}" class="list-group-item">Gastronomia</a>
-            <a href="#" class="list-group-item">Alojamiento</a>
+            <a href="{{route('admin.dormir.index')}}" class="list-group-item">Alojamiento</a>
             <a href="#" class="list-group-item">Lugares</a>
 
 

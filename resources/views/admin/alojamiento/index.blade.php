@@ -8,16 +8,17 @@ $('tr[data-href]').on("click", function() {
 @endpush
 @section('content')
 <div class="col-md-6">
-  <h1>Gastronomia</h1>
+  <h1>Alojamiento</h1>
 </div>
 <div class="col-md-6 text-right">
-  {{-- <button type="button" class="btn btn-default" data-toggle="modal" style="margin-top: 20px;" data-target="#add-evento">Agregar Local Gastronomico</button> --}}
-  <a type="button" class="btn btn-default" style="margin-top: 20px;" href="{{route('admin.comer.create')}}"  >Agregar Local Gastronomico</a>
+  <a type="button" class="btn btn-default" style="margin-top: 20px;" href="{{route('admin.dormir.create')}}"  >Agregar Alojamiento</a>
 </div>
 <hr>
 <div class="col-md-12">
-
-
+@empty ($alojamientos)
+  <h3 class="text-center">No hay Alojamientos cargados</h3>
+@endempty
+  @isset ($alojamientos)
     <table class="table table-striped" cellspacing="0" width="100%" style="margin-top:25px;">
         <thead>
             <tr>
@@ -27,8 +28,8 @@ $('tr[data-href]').on("click", function() {
             </tr>
         </thead>
         <tbody>
-          @foreach ($comer as $item)
-            <tr data-href="{{route('admin.comer.show', $item->id)}}">
+          @foreach ($alojamientos as $item)
+            <tr data-href="{{route('admin.dormir.show', $item->id)}}">
               <td style="vertical-align: middle"><h6>{{$item->id}}</h6></td>
 
               <td><h4>{{$item->nombre}} <small>{{$item->categoria}}</small></h4></td>
@@ -43,23 +44,9 @@ $('tr[data-href]').on("click", function() {
           @endforeach
        </tbody>
     </table>
-
+  @endisset
 
 </div>
-<div class="modal fade" tabindex="-1" role="dialog" id="add-evento">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Nuevo</h4>
-      </div>
-      <div class="modal-body">
-        {{-- @component('admin.gastronomia.form')
-        @endcomponent --}}
-      </div>
 
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
 
 @endsection

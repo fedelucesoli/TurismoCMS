@@ -78,7 +78,7 @@ class ComerController extends Controller
 
 
     public function show(Comer $comer){
-      
+
       $data['item'] = Comer::find($comer)->first();
 
       if(is_null($data['item'])){

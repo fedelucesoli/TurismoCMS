@@ -1,9 +1,13 @@
-<script type="text/javascript">var centreGot = false;</script>{!!$map['js']!!}
+@push('scripts')
+  <script type="text/javascript">var centreGot = false;</script>
+  {!! $map['js'] !!}
+  {{$map['js'] }}
 
+@endpush
 <div class="form-group ">
  <label class="control-label col-sm-2" for="ubicacion">Ubicacion</label>
  <div class="col-sm-8">
-   {!!$map['html']!!}
+   {!! $map['html'] !!}
    @if (isset($item))
      {{ Form::hidden('lat', $item->lat, array('id' => 'lat' ))}}
      {{ Form::hidden('lng', $item->lng, array('id' => 'lng' ))}}

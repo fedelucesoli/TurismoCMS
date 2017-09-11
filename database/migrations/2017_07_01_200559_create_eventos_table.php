@@ -17,19 +17,19 @@ class CreateEventosTable extends Migration
             $table->increments('id');
 
             $table->string('titulo');
-            $table->text('descripcion');
+            $table->text('descripcion')->nullable();
             $table->date('fecha');
-            $table->string('portada');
-            $table->string('foto');
-            $table->string('badge');
+            $table->string('hora');
 
-            $table->string('telefono');
-            $table->string('web');
-            $table->string('email');
+            $table->string('portada')->nullable();
+            $table->string('foto')->nullable();
+            $table->string('badge')->nullable();
 
-            $table->integer('asistire');
+            $table->integer('asistire')->nullable();
 
             $table->string('categoria');
+            $table->string('lugar');
+
 
             $table->string('estrellas');
             $table->string('peso');

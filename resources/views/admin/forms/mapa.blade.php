@@ -4,8 +4,6 @@
     </script>
     {!! $map['js'] !!}
 
-
-@endpush
 <div class="form-group ">
  <label class="control-label col-sm-2" for="ubicacion">Ubicacion</label>
  <div class="col-sm-8">

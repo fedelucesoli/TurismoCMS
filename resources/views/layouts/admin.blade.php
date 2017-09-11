@@ -36,12 +36,13 @@
       <div class="row">
         <div class="col-md-2">
           <div class="list-group">
-            <a href="{{route('admin.eventos.index')}}" class="list-group-item">
-              Eventos
-            </a>
+            <a href="{{route('admin.eventos.index')}}" class="list-group-item">Eventos</a>
             <a href="{{route('admin.comer.index')}}" class="list-group-item">Gastronomia</a>
             <a href="{{route('admin.dormir.index')}}" class="list-group-item">Alojamiento</a>
-            <a href="#" class="list-group-item">Lugares</a>
+            <a href="{{route('admin.lugar.index')}}" class="list-group-item">Lugares</a>
+            <hr>
+            <a href="" class="list-group-item">Usuario</a>
+
 
 
           </div>

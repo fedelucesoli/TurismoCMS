@@ -16,7 +16,7 @@ class EventoController extends Controller
     public function index()
     {
       $data['eventos'] = Evento::all();
-      return view('admin/eventos/eventos', $data);
+      return view('admin.eventos.index', $data);
     }
 
     /**
@@ -26,7 +26,9 @@ class EventoController extends Controller
      */
     public function create()
     {
-        //
+      $data['evento'] = new Evento;
+      $data['categorias'] = array('fiesta', 'peña');
+      return view('admin.eventos.form', $data);
     }
 
     /**

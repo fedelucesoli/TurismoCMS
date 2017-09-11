@@ -36,7 +36,7 @@
       <div class="row">
         <div class="col-md-2">
           <div class="list-group">
-            <a href="{{route('admin.evento.index')}}" class="list-group-item">
+            <a href="{{route('admin.eventos.index')}}" class="list-group-item">
               Eventos
             </a>
             <a href="{{route('admin.comer.index')}}" class="list-group-item">Gastronomia</a>

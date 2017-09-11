@@ -34,5 +34,5 @@ Route::get('/admin', 'Admin\DashboardController@index')->name('admin');
 // Route::get('/admin/eventos/add', 'Admin\EventoController@eventosadd')->name('admin.evento.add');
 
 Route::resource('/admin/comer', 'Admin\ComerController', ['as' => 'admin']);
-Route::resource('/admin/evento', 'Admin\EventoController', ['as' => 'admin']);
+Route::resource('/admin/eventos', 'Admin\EventoController', ['as' => 'admin']);
 Route::resource('/admin/dormir', 'Admin\DormirController', ['as' => 'admin']);

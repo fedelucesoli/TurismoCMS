@@ -152,6 +152,25 @@ class ComerController extends Controller
           return redirect()->route('admin.comer.show', $item->id);
     }
 
+    public function estado(Request $request, Comer $comer)
+        {
+          $item = Comer::find($request->input('id'));
+          if ($item) {
+            if ($item->activo) {
+              $estado = 0;
+            }else{
+              $estado = 1;
+            }
+            $item->activo = $estado;
+            $item->save();
+            $data['status'] = "mal";
+            $data['estado'] = $estado;
+
+          }
+          $data['status'] = "bien";
+          return json_encode($data);
+          // return redirect('dashboard')->with('mensaje', 'Obra publicada!');
+        }
 
     public function destroy(Comer $comer)
     {

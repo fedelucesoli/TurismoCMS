@@ -26,16 +26,13 @@ $('tr[data-href]').on("click", function() {
         </thead>
         <tbody>
           @foreach ($lugares as $item)
-            <tr data-href="{{route('admin.lugar.show', $item->id)}}">
+            <tr>
               <td style="vertical-align: middle"><h6>{{$item->id}}</h6></td>
 
-              <td><h4>{{$item->nombre}} <small>{{$item->categoria}}</small></h4></td>
+              <td><h4 data-href="{{route('admin.lugar.show', $item->id)}}">{{$item->nombre}} <small>{{$item->categoria}}</small></h4></td>
               <td style="vertical-align: middle">
-                @if ($item->activo)
-                  <a href="" data-id="{{$item->id}}" class="btn btn-info btn-xs estado">Publicado</a>
-                @else
-                  <a href="" data-id="{{$item->id}}" class="btn btn-success btn-xs estado">Borrador</a>
-                @endif
+                @component('admin.partials.activo', ['item' => $item, 'url' => 'lugar'])
+                @endcomponent
               </td>
             </tr>
           @endforeach

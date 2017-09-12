@@ -1,11 +1,5 @@
 @extends('layouts.admin')
-@push('scripts')
-<script type="text/javascript">
-$('tr[data-href]').on("click", function() {
-  document.location = $(this).data('href');
-});
-</script>
-@endpush
+
 @section('content')
 <div class="col-md-6">
   <h1>Alojamiento</h1>
@@ -29,16 +23,13 @@ $('tr[data-href]').on("click", function() {
         </thead>
         <tbody>
           @foreach ($alojamientos as $item)
-            <tr data-href="{{route('admin.dormir.show', $item->id)}}">
+            <tr>
               <td style="vertical-align: middle"><h6>{{$item->id}}</h6></td>
 
-              <td><h4>{{$item->nombre}} <small>{{$item->categoria}}</small></h4></td>
+              <td><h4 data-href="{{route('admin.dormir.show', $item->id)}}">{{$item->nombre}} <small>{{$item->categoria}}</small></h4></td>
               <td style="vertical-align: middle">
-                @if ($item->activo)
-                  <a href="" data-id="{{$item->id}}" class="btn btn-info btn-xs estado">Publicado</a>
-                @else
-                  <a href="" data-id="{{$item->id}}" class="btn btn-success btn-xs estado">Borrador</a>
-                @endif
+                @component('admin.partials.activo', ['item' => $item, 'url' => 'dormir'])
+                @endcomponent
               </td>
             </tr>
           @endforeach
@@ -50,3 +41,45 @@ $('tr[data-href]').on("click", function() {
 
 
 @endsection
+
+@push('scripts')
+<script type="text/javascript">
+$('h4[data-href]').on("click", function() {
+  document.location = $(this).data('href');
+});
+
+  function toggleEstado(){
+    console.log('toggleEstado');
+    var self = $(this);
+    var id = $(this).data('id');
+        $.ajax({
+          headers: {
+             'X-CSRF-TOKEN':"{{ csrf_token() }}"
+         },
+          type: "POST",
+          method: "POST",
+          data: {'id': id },
+          url: 'dormir/estado',
+
+          success: function(result) {
+            var json = $.parseJSON(result);
+            console.log(json);
+            if (json.estado === 1) {
+              self.removeClass('btn-success').addClass('btn-info').html('Publicado');
+              // this1.children('.fa').removeClass('fa-toggle-off').addClass('fa-toggle-on');
+              console.log('on');
+            }
+            if(json.estado === 0){
+              self.removeClass('btn-success').addClass('btn-info').html('Borrador');
+
+              // this1.children('.fa').removeClass('fa-toggle-on').addClass('fa-toggle-off');
+              console.log('off');
+            }
+
+          }
+        });
+  }
+
+
+</script>
+@endpush

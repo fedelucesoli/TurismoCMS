@@ -19,4 +19,7 @@ class Dormir extends Model
       'categoria',
       'activo',
     ];
+    public function usuario(){
+      return $this->belongsTo('App\User', 'id');
+  }
 }

@@ -1,6 +1,6 @@
 
 <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARNS3mh7oxFuCY3g1g_AxS12W1rU7S3sM&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARNS3mh7oxFuCY3g1g_AxS12W1rU7S3sM">
     </script>
     {!! $map['js'] !!}
 

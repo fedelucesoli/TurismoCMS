@@ -45,25 +45,22 @@
     </div>
   </div>
 
-  <div class="form-group @if ($errors->has('direccion')) has-error @endif">
+  <div class="form-group @if ($errors->has('lugar')) has-error @endif">
     {{ Form::label('lugar', "Lugar", ['class' => 'control-label col-sm-2']) }}
-    <div class="col-sm-8">
-      {{ Form::text('lugar', null, array('class' => 'form-control')) }}
-      @if ($errors->has('lugar'))<p class="help-block">{{ $errors->first('lugar') }}</p>@endif
+    <div class="col-sm-5">
+      {{ Form::select('lugar', $lugares->pluck('nombre'), null, ['placeholder' => 'Lugar', 'class' => 'select form-control']) }}
+      @if ($errors->has('lugar'))<p class="help-block">{{ $errors->first('categoria') }}</p>@endif
+    </div>
+    <div class="col-sm-1 text-right">
+      <a type="button" class="btn btn-default" href="{{route('admin.eventos.create')}}">Agregar Lugar</a>
     </div>
   </div>
-  <div class="form-group @if ($errors->has('direccion')) has-error @endif">
-    {{ Form::label('direccion', "Dirección", ['class' => 'control-label col-sm-2']) }}
+
+  <div class="form-group @if ($errors->has('descripcion')) has-error @endif">
+    {{ Form::label('descripcion', "Descripción", ['class' => 'control-label col-sm-2']) }}
     <div class="col-sm-8">
-      {{ Form::text('direccion', null, array('class' => 'form-control')) }}
-      @if ($errors->has('direccion'))<p class="help-block">{{ $errors->first('direccion') }}</p>@endif
-    </div>
-  </div>
-  <div class="form-group @if ($errors->has('localidad')) has-error @endif">
-    {{ Form::label('localidad', "Localidad", ['class' => 'control-label col-sm-2']) }}
-    <div class="col-sm-8">
-      {{ Form::text('localidad', null, array('class' => 'form-control')) }}
-      @if ($errors->has('localidad'))<p class="help-block">{{ $errors->first('localidad') }}</p>@endif
+      {{ Form::textarea('descripcion', null, array('class' => 'form-control')) }}
+      @if ($errors->has('descripcion'))<p class="help-block">{{ $errors->first('descripcion') }}</p>@endif
     </div>
   </div>
 

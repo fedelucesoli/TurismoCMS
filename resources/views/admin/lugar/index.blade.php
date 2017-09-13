@@ -58,3 +58,43 @@ $('tr[data-href]').on("click", function() {
 </div><!-- /.modal -->
 
 @endsection
+
+@push('scripts')
+<script type="text/javascript">
+$('h4[data-href]').on("click", function() {
+  document.location = $(this).data('href');
+});
+
+  function toggleEstado(){
+    console.log('toggleEstado');
+    var self = $(this);
+    var id = $(this).data('id');
+        $.ajax({
+          headers: {
+             'X-CSRF-TOKEN':"{{ csrf_token() }}"
+         },
+          type: "POST",
+          method: "POST",
+          data: {'id': id },
+          url: 'lugar/estado',
+
+          success: function(result) {
+            var json = $.parseJSON(result);
+            console.log(json);
+            if (json.estado === 1) {
+              self.removeClass('btn-success').addClass('btn-info').html('Publicado');
+              // this1.children('.fa').removeClass('fa-toggle-off').addClass('fa-toggle-on');
+              console.log('on');
+            }
+            if(json.estado === 0){
+              self.removeClass('btn-success').addClass('btn-info').html('Borrador');
+              // this1.children('.fa').removeClass('fa-toggle-on').addClass('fa-toggle-off');
+              console.log('off');
+            }
+          }
+        });
+  }
+
+
+</script>
+@endpush

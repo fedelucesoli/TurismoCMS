@@ -79,7 +79,7 @@ class ComerController extends Controller
 
     public function show(Comer $comer){
 
-      $data['item'] = Comer::find($comer)->first();
+      $data['item'] = Comer::find($comer->id);
 
       if(is_null($data['item'])){
         $request->session()->flash('status', ':( No se encuentra ese registro!');
@@ -118,7 +118,7 @@ class ComerController extends Controller
 
     public function update(Request $request, Comer $comer)
     {
-        $item = Comer::find($comer)->first();
+        $item = Comer::find($comer->id);
         $rules = array(
           'nombre'            => 'required|max:140',
           'direccion'         => 'required',
@@ -174,6 +174,8 @@ class ComerController extends Controller
 
     public function destroy(Comer $comer)
     {
-        //
+        $item = Comer::find($comer->id);
+        $item->delete();
+        
     }
 }

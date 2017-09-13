@@ -74,7 +74,7 @@ class LugarController extends Controller
 
     public function show(Lugar $lugar)
     {
-      $data['item'] = Lugar::find($lugar)->first();
+      $data['item'] = Lugar::find($lugar->id);
 
       if(is_null($data['item'])){
         $request->session()->flash('status', ':( No lo encuentre!');
@@ -124,7 +124,7 @@ class LugarController extends Controller
      */
     public function update(Request $request, Lugar $lugar)
     {
-      $item = Lugar::find($lugar)->first();
+      $item = Lugar::find($lugar->id);
       $rules = array(
         'nombre'            => 'required|max:140',
         'direccion'         => 'required',
@@ -145,12 +145,26 @@ class LugarController extends Controller
         return redirect()->route('admin.lugar.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Lugar  $lugar
-     * @return \Illuminate\Http\Response
-     */
+    public function estado(Request $request, Lugar $lugar)
+        {
+          $item = Lugar::find($request->input('id'));
+          if ($item) {
+            if ($item->activo) {
+              $estado = 0;
+            }else{
+              $estado = 1;
+            }
+            $item->activo = $estado;
+            $item->save();
+            $data['status'] = "mal";
+            $data['estado'] = $estado;
+
+          }
+          $data['status'] = "bien";
+          return json_encode($data);
+          // return redirect('dashboard')->with('mensaje', 'Obra publicada!');
+        }
+
     public function destroy(Lugar $lugar)
     {
         //

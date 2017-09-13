@@ -85,7 +85,7 @@ class DormirController extends Controller
 
     public function show(Dormir $dormir)
     {
-      $data['item'] = Dormir::find($dormir)->first();
+      $data['item'] = Dormir::find($dormir->id)->usuario();
       if(is_null($data['item'])){
         $request->session()->flash('status', ':( No se encuentra ese registro!');
 
@@ -134,7 +134,7 @@ class DormirController extends Controller
      */
     public function update(Request $request, Dormir $dormir)
     {
-      $item = Dormir::find($dormir)->first();
+      $item = Dormir::find($dormir->id);
 
       $rules = array(
         'nombre'            => 'required|max:140',
@@ -171,12 +171,26 @@ class DormirController extends Controller
         return redirect()->route('admin.dormir.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Dormir  $dormir
-     * @return \Illuminate\Http\Response
-     */
+    public function estado(Request $request, Dormir $dormir)
+        {
+          $item = Dormir::find($request->input('id'));
+          if ($item) {
+            if ($item->activo) {
+              $estado = 0;
+            }else{
+              $estado = 1;
+            }
+            $item->activo = $estado;
+            $item->save();
+            $data['status'] = "mal";
+            $data['estado'] = $estado;
+
+          }
+          $data['status'] = "bien";
+          return json_encode($data);
+          // return redirect('dashboard')->with('mensaje', 'Obra publicada!');
+        }
+
     public function destroy(Dormir $dormir)
     {
         //

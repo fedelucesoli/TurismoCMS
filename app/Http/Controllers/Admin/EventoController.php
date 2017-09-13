@@ -6,6 +6,9 @@ use App\Evento;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Lugar;
+
+
 class EventoController extends Controller
 {
     /**
@@ -26,6 +29,8 @@ class EventoController extends Controller
      */
     public function create()
     {
+
+      $data['lugares'] = Lugar::all();
       $data['evento'] = new Evento;
       $data['categorias'] = array('fiesta', 'peña');
       return view('admin.eventos.form', $data);
@@ -76,12 +81,26 @@ class EventoController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Evento  $evento
-     * @return \Illuminate\Http\Response
-     */
+    public function estado(Request $request, Evento $evento)
+        {
+          $item = Evento::find($request->input('id'));
+          if ($item) {
+            if ($item->activo) {
+              $estado = 0;
+            }else{
+              $estado = 1;
+            }
+            $item->activo = $estado;
+            $item->save();
+            $data['status'] = "mal";
+            $data['estado'] = $estado;
+
+          }
+          $data['status'] = "bien";
+          return json_encode($data);
+          // return redirect('dashboard')->with('mensaje', 'Obra publicada!');
+        }
+
     public function destroy(Evento $evento)
     {
         //

@@ -8,7 +8,7 @@
 </div>
 <div class="col-md-10 text-right">
   CREADO: <bold>{{date_format($item->created_at,"d/m/Y - H:i") }}</bold>
-
+  USUARIO: <bold>{{ $item->id_usuario}}</bold> 
 </div>
 
 <div class="col-md-10 col-md-offset-2">

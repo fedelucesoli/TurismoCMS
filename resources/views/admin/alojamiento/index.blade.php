@@ -38,8 +38,6 @@
   @endisset
 
 </div>
-
-
 @endsection
 
 @push('scripts')
@@ -71,11 +69,9 @@ $('h4[data-href]').on("click", function() {
             }
             if(json.estado === 0){
               self.removeClass('btn-success').addClass('btn-info').html('Borrador');
-
               // this1.children('.fa').removeClass('fa-toggle-on').addClass('fa-toggle-off');
               console.log('off');
             }
-
           }
         });
   }

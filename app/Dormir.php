@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Dormir extends Model
@@ -19,7 +19,5 @@ class Dormir extends Model
       'categoria',
       'activo',
     ];
-    public function usuario(){
-      return $this->belongsTo('App\User', 'id');
-  }
+  
 }

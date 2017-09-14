@@ -30,13 +30,14 @@ Route::get('/turismo/rural', function () { return view('paginas/turismo-rural');
 Auth::routes();
 Route::get('/admin', 'Admin\DashboardController@index')->name('admin');
 
-// Route::get('/admin/eventos', 'Admin\EventoController@index')->name('admin.evento.list');
-// Route::get('/admin/eventos/add', 'Admin\EventoController@eventosadd')->name('admin.evento.add');
 Route::post('/admin/comer/estado', 'Admin\ComerController@estado');
 Route::post('/admin/dormir/estado', 'Admin\DormirController@estado');
-Route::post('/admin/eventos/estado', 'Admin\EventosController@estado');
+Route::post('/admin/eventos/estado', 'Admin\EventoController@estado');
 Route::post('/admin/lugar/estado', 'Admin\LugarController@estado');
-Route::resource('/admin/comer', 'Admin\ComerController', ['as' => 'admin']);
-Route::resource('/admin/eventos', 'Admin\EventoController', ['as' => 'admin']);
-Route::resource('/admin/dormir', 'Admin\DormirController', ['as' => 'admin']);
-Route::resource('/admin/lugar', 'Admin\LugarController', ['as' => 'admin']);
+
+Route::resource('admin/comer', 'Admin\ComerController', ['as' => 'admin']);
+Route::resource('admin/eventos', 'Admin\EventoController', ['as' => 'admin']);
+Route::resource('admin/dormir', 'Admin\DormirController', ['as' => 'admin']);
+Route::resource('admin/lugar', 'Admin\LugarController', ['as' => 'admin']);
+
+Route::resource('/admin/categorias', 'Admin\CategoriaController', ['as' => 'admin']);

@@ -85,7 +85,7 @@ class DormirController extends Controller
 
     public function show(Dormir $dormir)
     {
-      $data['item'] = Dormir::find($dormir->id)->usuario();
+      $data['item'] = Dormir::find($dormir->id);
       if(is_null($data['item'])){
         $request->session()->flash('status', ':( No se encuentra ese registro!');
 

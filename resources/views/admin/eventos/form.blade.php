@@ -27,7 +27,7 @@
       @if ($errors->has('categoria'))<p class="help-block">{{ $errors->first('categoria') }}</p>@endif
     </div>
     <div class="col-sm-1 text-right">
-      <a type="button" class="btn btn-default" href="{{route('admin.eventos.create')}}"  >Agregar Categoria</a>
+      <button type="button" class="btn btn-default"  data-toggle="modal" data-target="#modal" >Agregar Categoria</button>
     </div>
   </div>
 
@@ -77,5 +77,15 @@
   {{ Form::close() }}
 
 </div>
+
+@component('admin.partials.modal', [
+  'categorias' => 'categorias',
+  'titulo' => "Categorias",
+  'include' => 'admin/forms/categorias',
+  'parent' => 'eventos',
+
+])
+
+@endcomponent
 
 @endsection

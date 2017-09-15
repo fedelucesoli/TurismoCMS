@@ -6,6 +6,9 @@ use App\Categoria;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Str as Str;
+use Illuminate\Support\Facades\Auth;
+
 class CategoriaController extends Controller
 {
     /**
@@ -31,12 +34,27 @@ class CategoriaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request){
+      $item = new Categoria;
+      $item->nombre = $request->nombre;
+      $item->parent = $request->parent;
+      $item->slug = Str::slug($request->nombre);
+      $item->id_usuario = $request->user()->id;
+      if ($item->save()) {
+        return response()->json([
+          'nombre' => $item->nombre,
+          'slug' => Str::slug($item->nombre),
+          'parent' => $item->parent,
+          'id' => $item->id,
+        ], 200);
+      }else{
         return response()->json([
           'nombre' => $request->nombre,
           'parent' => $request->parent,
-        ]);
+        ], 500);
+      }
+
+
     }
 
     /**
@@ -73,14 +91,18 @@ class CategoriaController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Categoria  $categoria
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Categoria $categoria)
-    {
-        //
+    public function destroy(Categoria $categoria){
+
+        $item = Categoria::find($categoria)->first();
+        if($item->delete()){
+          return response()->json([
+            'mensaje' => 'Categoria Eliminada!',
+            'id' => $categoria->id
+          ], 200);
+        }else {
+          return response()->json([
+            'mensaje' => 'No se pudo eliminar la Categoria :('
+          ], 500);
+        }
     }
 }

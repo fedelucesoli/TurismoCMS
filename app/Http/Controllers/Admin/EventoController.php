@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Lugar;
+use App\Categoria;
 
 
 class EventoController extends Controller
@@ -32,7 +33,7 @@ class EventoController extends Controller
 
       $data['lugares'] = Lugar::all();
       $data['evento'] = new Evento;
-      $data['categorias'] = array('fiesta', 'peña');
+      $data['categorias'] = Categoria::where('parent', 'eventos')->get();
       return view('admin.eventos.form', $data);
     }
 

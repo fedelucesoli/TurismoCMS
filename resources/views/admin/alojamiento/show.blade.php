@@ -7,8 +7,8 @@
   <a type="button" class="btn btn-default" style="" href="{{route('admin.dormir.index')}}"  >Volver</a>
 </div>
 <div class="col-md-10 text-right">
-  CREADO: <bold>{{date_format($item->created_at,"d/m/Y - H:i") }}</bold>
-  USUARIO: <bold>{{ $item->id_usuario}}</bold> 
+  <h6>CREADO</h6>
+  <H6 class="text-muted">{{date_format($item->created_at,"d/m/Y - H:i") }}</H6>
 </div>
 
 <div class="col-md-10 col-md-offset-2">

@@ -6,7 +6,8 @@
     <a type="button" class="btn btn-default" style="" href="{{route('admin.lugar.index')}}"  >Volver</a>
   </div>
   <div class="col-md-8 text-right">
-    <bold>{{date_format($item->created_at,"d/m/Y - H:i") }}</bold>
+    <h6>CREADO</h6>
+    <H6 class="text-muted">{{date_format($item->created_at,"d/m/Y - H:i") }}</H6>
   </div>
 
 </div>

@@ -1,10 +1,8 @@
 @extends('layouts.admin')
-@push('scripts')
 
-@endpush
 @section('content')
 <div class="col-md-2" style="margin-bottom: 15px;">
-  <a type="button" class="btn btn-default" style="" href="{{route('admin.comer.index')}}"  >Volver</a>
+  <a type="button" class="btn btn-default" style="" href="{{route('admin.comer.index')}}"> <span class="fa fa-arrow-left"></span> Volver</a>
 </div>
 <div class="col-md-10">
   <h6>CREADO</h6>

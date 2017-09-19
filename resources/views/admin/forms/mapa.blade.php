@@ -1,8 +1,13 @@
 
-<script async defer
+{{-- <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARNS3mh7oxFuCY3g1g_AxS12W1rU7S3sM">
-    </script>
-    {!! $map['js'] !!}
+    </script> --}}
+    @push('scripts')
+      <script type="text/javascript">var centreGot = false;</script>{!!$map['js']!!}
+
+      {{-- {!! $map['js'] !!} --}}
+
+    @endpush
 
 <div class="form-group ">
  <label class="control-label col-sm-2" for="ubicacion">Ubicacion</label>

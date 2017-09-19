@@ -1,5 +1,6 @@
 <button
   data-id="{{$item->id}}"
+  data-fede="fede" 
   type="button"
   onclick="toggleEstado()"
   @if ($item->activo)
@@ -19,5 +20,5 @@
 @endif --}}
 
 @push('scripts')
-  
+
 @endpush

@@ -12,7 +12,7 @@ $('h4[data-href]').on("click", function() {
 </div>
 <div class="col-md-6 text-right">
   {{-- <button type="button" class="btn btn-default" data-toggle="modal" style="margin-top: 20px;" data-target="#add-evento">Agregar Local Gastronomico</button> --}}
-  <a type="button" class="btn btn-default" style="margin-top: 20px;" href="{{route('admin.comer.create')}}"  >Agregar Local Gastronomico</a>
+  <a type="button" class="btn btn-default" style="margin-top: 20px;" href="{{route('admin.comer.create')}}">Agregar Local Gastronomico</a>
 </div>
 <hr>
 <div class="col-md-12">
@@ -33,8 +33,20 @@ $('h4[data-href]').on("click", function() {
 
               <td><h4 data-href="{{route('admin.comer.show', $item->id)}}">{{$item->nombre}} <small>{{$item->categoria}}</small></h4></td>
               <td style="vertical-align: middle">
-                @component('admin.partials.activo', ['item' => $item, 'url' => 'comer'])
-                @endcomponent
+                <button
+                  data-id="{{$item->id}}"
+                  data-fede="fede"
+                  type="button"
+                  onclick="toggleEstado(this)"
+                  @if ($item->activo)
+                    class="estado btn-xs btn btn-info">
+                    Publicado
+
+                  @else
+                    class="estado btn-xs btn btn-success">
+                    Borrador
+                  @endif
+                </button>
               </td>
             </tr>
           @endforeach
@@ -66,18 +78,21 @@ $('h4[data-href]').on("click", function() {
   document.location = $(this).data('href');
 });
 
-  function toggleEstado(){
-    console.log('toggleEstado');
-    var self = $(this);
-    var id = $(this).data('id');
+  function toggleEstado(self){
+    console.log(self.data());
+    var id_post = $(this).data('fede');
+    console.log( self.data('fede'));
+    console.log( self.data('id'));
+
         $.ajax({
           headers: {
              'X-CSRF-TOKEN':"{{ csrf_token() }}"
          },
           type: "POST",
           method: "POST",
-          data: {'id': id },
-          url: 'dormir/estado',
+          data: {id: id_post },
+          processData: false,
+          url: 'comer/estado',
 
           success: function(result) {
             var json = $.parseJSON(result);

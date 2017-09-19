@@ -70,8 +70,8 @@
         },
         url: '/admin/categorias/'+$(this).data('id'),
         success: function(result) {
-          console.log($(this).closest("tr"));
           element.closest("tr").remove();
+          $('.alert').html(result.mensaje).removeClass('hidden');
        },
        error: function(result){
          $('.alert').html(result.mensaje).removeClass('hidden');

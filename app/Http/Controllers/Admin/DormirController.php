@@ -182,13 +182,9 @@ class DormirController extends Controller
             }
             $item->activo = $estado;
             $item->save();
-            $data['status'] = "mal";
-            $data['estado'] = $estado;
-
           }
-          $data['status'] = "bien";
+          $data['estado'] = $estado;
           return json_encode($data);
-          // return redirect('dashboard')->with('mensaje', 'Obra publicada!');
         }
 
     public function destroy(Dormir $dormir)

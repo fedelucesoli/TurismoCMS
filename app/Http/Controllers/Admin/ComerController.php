@@ -154,7 +154,7 @@ class ComerController extends Controller
 
     public function estado(Request $request, Comer $comer)
         {
-          $item = Comer::find($request->input('id'));
+          $item = Comer::findOrFail($request->input('id'));
           if ($item) {
             if ($item->activo) {
               $estado = 0;
@@ -163,19 +163,15 @@ class ComerController extends Controller
             }
             $item->activo = $estado;
             $item->save();
-            $data['status'] = "mal";
-            $data['estado'] = $estado;
-
           }
-          $data['status'] = "bien";
+          $data['estado'] = 'No paso el primer if';
           return json_encode($data);
-          // return redirect('dashboard')->with('mensaje', 'Obra publicada!');
         }
 
     public function destroy(Comer $comer)
     {
         $item = Comer::find($comer->id);
         $item->delete();
-        
+
     }
 }

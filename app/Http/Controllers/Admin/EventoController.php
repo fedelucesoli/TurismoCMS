@@ -86,21 +86,19 @@ class EventoController extends Controller
         {
           $item = Evento::find($request->input('id'));
           if ($item) {
-            if ($item->activo) {
-              $estado = 0;
-            }else{
-              $estado = 1;
+            if ($item) {
+              if ($item->activo) {
+                $estado = 0;
+              }else{
+                $estado = 1;
+              }
+              $item->activo = $estado;
+              $item->save();
             }
-            $item->activo = $estado;
-            $item->save();
-            $data['status'] = "mal";
             $data['estado'] = $estado;
-
-          }
-          $data['status'] = "bien";
-          return json_encode($data);
-          // return redirect('dashboard')->with('mensaje', 'Obra publicada!');
+            return json_encode($data);
         }
+      }
 
     public function destroy(Evento $evento)
     {

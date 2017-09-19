@@ -74,7 +74,8 @@ class LugarController extends Controller
 
     public function show(Lugar $lugar)
     {
-      $data['item'] = Lugar::find($lugar->id);
+      $data['item'] = $lugar;
+      // $data['item'] = Lugar::find($lugar->id);
 
       if(is_null($data['item'])){
         $request->session()->flash('status', ':( No lo encuentre!');
@@ -147,7 +148,7 @@ class LugarController extends Controller
 
     public function estado(Request $request, Lugar $lugar)
         {
-          $item = Lugar::find($request->input('id'));
+          $item = Lugar::findOrFail($request->input('id'));
           if ($item) {
             if ($item->activo) {
               $estado = 0;
@@ -156,13 +157,12 @@ class LugarController extends Controller
             }
             $item->activo = $estado;
             $item->save();
-            $data['status'] = "mal";
             $data['estado'] = $estado;
-
           }
-          $data['status'] = "bien";
+          $data['estado'] = 'No encontre el item';
+
           return json_encode($data);
-          // return redirect('dashboard')->with('mensaje', 'Obra publicada!');
+
         }
 
     public function destroy(Lugar $lugar)

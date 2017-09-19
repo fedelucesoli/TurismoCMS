@@ -10,10 +10,10 @@
                   </a>
                 </div>
             </div>
-
+            {{-- TODO - navbar mobile -sidebar  --}}
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="{{ Request::is('/') ? 'active' : '' }}">
+                    <li class="hidden-md {{ Request::is('/') ? 'active' : '' }}">
                         <a href="/">INICIO</a>
                     </li>
                     <li class="{{ Request::is('ciudad') ? 'active' : '' }}">

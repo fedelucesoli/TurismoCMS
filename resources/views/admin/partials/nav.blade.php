@@ -39,8 +39,6 @@
 
 <div id="sidebar-wrapper">
     <ul class="sidebar-nav">
-
-
         <li><a href="#">Inicio</a></li>
         <li><a href="{{route('admin.evento.list')}}">Eventos</a></li>
         <li><a href="{{route('admin.comer.list')}}">Comer</a></li>

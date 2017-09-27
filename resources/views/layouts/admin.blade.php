@@ -56,6 +56,13 @@
           </div>
         </div>
         <div class="col-md-10">
+          
+          @foreach (Alert::getMessages() as $type => $messages)
+              @foreach ($messages as $message)
+                  <div class="alert alert-{{ $type }}">{{ $message }}</div>
+              @endforeach
+          @endforeach
+
           @if (Session::has('status'))
             <div class="alert alert-success" role="alert">
                <a class="close" data-dismiss="alert">×</a>

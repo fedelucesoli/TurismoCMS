@@ -12,8 +12,7 @@ class LugarController extends Controller
 {
     public function __construct(){
       $this->middleware('auth');
-      $maps = 
-    }
+     }
 
     public function index()
     {

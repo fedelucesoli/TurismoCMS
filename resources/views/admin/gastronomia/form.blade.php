@@ -22,7 +22,8 @@
   <div class="form-group @if ($errors->has('categoria')) has-error @endif">
     {{ Form::label('categoria', "Categoria", ['class' => 'control-label col-sm-2']) }}
     <div class="col-sm-8">
-      {{ Form::text('categoria', null, array('class' => 'form-control')) }}
+      {{ Form::select('categoria', $categorias->pluck('nombre'), null, ['placeholder' => 'Categoria', 'class' => 'select form-control']) }}
+
       @if ($errors->has('categoria'))<p class="help-block">{{ $errors->first('categoria') }}</p>@endif
     </div>
   </div>

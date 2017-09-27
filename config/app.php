@@ -183,7 +183,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
 
         Barryvdh\Debugbar\ServiceProvider::class,
-
+        Prologue\Alerts\AlertsServiceProvider::class,
 
     ],
 
@@ -239,6 +239,8 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Alert' => Prologue\Alerts\Facades\Alert::class,
+
     ],
 
 ];

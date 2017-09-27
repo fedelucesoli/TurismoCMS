@@ -46,6 +46,8 @@ class MapasRepository
     $config['map_width'] = '100%';
     $config['map_height'] = 500;
     $config['zoom'] = 15;
+    $config['disableDefaultUI'] = true;
+    
     $config['onclick'] = '
     createMarker_map({ map: map, position:event.latLng });
     document.getElementById("lat").value = event.latLng.lat();

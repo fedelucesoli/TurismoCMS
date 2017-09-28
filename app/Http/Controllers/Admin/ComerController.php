@@ -3,40 +3,46 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Comer;
+use App\Categoria;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use GeneaLabs\Phpgmaps\Facades\PhpgmapsFacade as Gmaps;
 use Illuminate\Support\Facades\Auth;
+use App\Logic\MapasRepository;
 
 
 
 class ComerController extends Controller
 {
-  public function __construct(){
+  public function __construct(MapasRepository $MapaRepository){
     $this->middleware('auth');
+    $this->mapa = $MapaRepository;
   }
     public function index()
     {
       $data['comer'] = Comer::all();
+      $data['categorias'] = Categoria::where('parent', 'gastronomia')->get();
       return view('admin.gastronomia.index', $data);
     }
 
     public function create()
     {
         $data['local'] = new Comer;
-        $config = array();
-        $config['center'] = '-35.1870349, -59.0949762';
-        $config['map_width'] = '100%';
-        $config['map_height'] = 500;
-        $config['zoom'] = 15;
-        $config['onclick'] = '
-        createMarker_map({ map: map, position:event.latLng });
-        document.getElementById("lat").value = event.latLng.lat();
-        document.getElementById("lng").value = event.latLng.lng();
-        ';
-
-        Gmaps::initialize($config);
-        $data['map'] = Gmaps::create_map();
+        // $config = array();
+        // $config['center'] = '-35.1870349, -59.0949762';
+        // $config['map_width'] = '100%';
+        // $config['map_height'] = 500;
+        // $config['zoom'] = 15;
+        // $config['onclick'] = '
+        // createMarker_map({ map: map, position:event.latLng });
+        // document.getElementById("lat").value = event.latLng.lat();
+        // document.getElementById("lng").value = event.latLng.lng();
+        // ';
+        //
+        // Gmaps::initialize($config);
+        // $data['map'] = Gmaps::create_map();
+        $data['map'] = $this->mapa->addMarkerMap();
+        $data['categorias'] = Categoria::where('parent', 'gastronomia')->get();
         return view('admin.gastronomia.form', $data);
     }
 

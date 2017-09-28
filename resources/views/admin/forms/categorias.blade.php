@@ -20,7 +20,7 @@
 </div>
 <table class="table table-hover" cellspacing="0" width="100%" style="margin-top:25px;">
 
-    <tbody>
+    <tbody id="categorias">
       @foreach ($categorias as $item)
         <tr data-id="{{$item->id}}">
           <td style="width:7%" class="text-center"><h6>{{$item->id}}</h6></td>
@@ -50,7 +50,7 @@
         url: '/admin/categorias',
         success: function(result) {
          console.log('response: '+ result.nombre);
-         $('tbody').append('<tr data-id="'+result.id+'"> <td style="width:7%" class="text-center"><h6>'+result.id+'</h6></td> <td style="vertical-align: middle">'+result.nombre+'</td> <td style="width:10%" style="vertical-align: middle"><a href="#eliminar" data-id="'+result.id+'" class="btn btn-default">Eliminar</a></td> </tr>');
+         $('#categorias').append('<tr data-id="'+result.id+'"> <td style="width:7%" class="text-center"><h6>'+result.id+'</h6></td> <td style="vertical-align: middle">'+result.nombre+'</td> <td style="width:10%" style="vertical-align: middle"><a href="#eliminar" data-id="'+result.id+'" class="btn btn-default">Eliminar</a></td> </tr>');
          //TODO - Agregar a select
        },
        error: function(result){

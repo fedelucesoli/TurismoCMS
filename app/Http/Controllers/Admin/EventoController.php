@@ -45,7 +45,9 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      
+      Alert::add('error', 'Error message');
+      return Redirect::to('dashboard');
     }
 
     /**

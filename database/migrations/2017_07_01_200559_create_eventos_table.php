@@ -34,7 +34,7 @@ class CreateEventosTable extends Migration
             $table->string('estrellas');
             $table->string('peso');
 
-            $table->boolean('activo');
+            $table->boolean('activo')->default(0);
 
             $table->timestamps();
         });

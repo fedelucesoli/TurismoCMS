@@ -20,6 +20,8 @@ class EventoController extends Controller
     public function index()
     {
       $data['eventos'] = Evento::all();
+      $data['categorias'] = Categoria::where('parent', 'evento')->get();
+
       return view('admin.eventos.index', $data);
     }
 
@@ -33,7 +35,7 @@ class EventoController extends Controller
 
       $data['lugares'] = Lugar::all();
       $data['evento'] = new Evento;
-      $data['categorias'] = Categoria::where('parent', 'eventos')->get();
+      $data['categorias'] = Categoria::where('parent', 'evento')->get();
       return view('admin.eventos.form', $data);
     }
 
@@ -45,7 +47,7 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
-      
+
       Alert::add('error', 'Error message');
       return Redirect::to('dashboard');
     }

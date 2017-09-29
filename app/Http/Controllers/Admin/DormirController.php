@@ -3,21 +3,25 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Dormir;
+use App\Categoria;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use GeneaLabs\Phpgmaps\Facades\PhpgmapsFacade as Gmaps;
 use Illuminate\Support\Facades\Auth;
+use App\Logic\MapasRepository;
+
 
 class DormirController extends Controller
 {
-      public function __construct()
-    {
+    public function __construct(MapasRepository $MapaRepository){
       $this->middleware('auth');
+      $this->mapa = $MapaRepository;
     }
 
     public function index()
     {
       $data['alojamientos'] = Dormir::all();
+      $data['categorias'] = Categoria::where('parent', 'alojamiento')->get();
       return view('admin.alojamiento.index', $data);
     }
 
@@ -29,19 +33,8 @@ class DormirController extends Controller
     public function create()
     {
       $data['item'] = new Dormir;
-      $config = array();
-      $config['center'] = '-35.1870349, -59.0949762';
-      $config['map_width'] = '100%';
-      $config['map_height'] = 500;
-      $config['zoom'] = 15;
-      $config['onclick'] = '
-      createMarker_map({ map: map, position:event.latLng });
-      document.getElementById("lat").value = event.latLng.lat();
-      document.getElementById("lng").value = event.latLng.lng();
-      ';
+      $data['map'] = $this->mapa->addMarkerMap();
 
-      Gmaps::initialize($config);
-      $data['map'] = Gmaps::create_map();
       return view('admin.alojamiento.form', $data);
     }
 
@@ -85,32 +78,14 @@ class DormirController extends Controller
 
     public function show(Dormir $dormir)
     {
-      $data['item'] = Dormir::find($dormir->id);
+      $data['item'] = $dormir;
       if(is_null($data['item'])){
         $request->session()->flash('status', ':( No se encuentra ese registro!');
 
         return redirect()->route('admin.comer.index');
       }
-      $latlng= $data['item']->lat . ', '. $data['item']->lng;
-      $config = array();
-      $config['center'] = $latlng;
-      $config['map_width'] = '100%';
-      $config['map_height'] = 400;
-      $config['zoom'] = 18;
-      $config['disableMapTypeControl'] = true;
-      $config['disableDefaultUI'] = true;
-      $marker = array();
-      $marker['position'] = $latlng;
-      $marker['icon'] = '/img/marker.png';
-      $marker['draggable'] = true;
-        $marker['ondragend'] = '
-        document.getElementById("lat").value = event.latLng.lat();
-        document.getElementById("lng").value = event.latLng.lng();
-        ';
-      Gmaps::add_marker($marker);
-      Gmaps::initialize($config);
+      $data['map'] = $this->mapa->showMarkerMap($data['item']);
 
-      $data['map'] = Gmaps::create_map();
       return view('admin.alojamiento.show', $data);
     }
 
@@ -134,7 +109,7 @@ class DormirController extends Controller
      */
     public function update(Request $request, Dormir $dormir)
     {
-      $item = Dormir::find($dormir->id);
+      $item = $dormir;
 
       $rules = array(
         'nombre'            => 'required|max:140',
@@ -173,7 +148,7 @@ class DormirController extends Controller
 
     public function estado(Request $request, Dormir $dormir)
         {
-          $item = Dormir::find($request->input('id'));
+          $item = $dormir;
           if ($item) {
             if ($item->activo) {
               $estado = 0;

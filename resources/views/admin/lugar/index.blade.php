@@ -11,6 +11,7 @@ $('tr[data-href]').on("click", function() {
   <h1>Lugares</h1>
 </div>
 <div class="col-md-6 text-right">
+  <a type="button" class="btn btn-default" style="margin-top: 20px;" href="" data-toggle="modal" data-target="#modal">Categorias</a>
   <a type="button" class="btn btn-default" style="margin-top: 20px;" href="{{route('admin.lugar.create')}}"  >Agregar Lugar</a>
 </div>
 <hr>
@@ -38,10 +39,15 @@ $('tr[data-href]').on("click", function() {
           @endforeach
        </tbody>
     </table>
-
-
 </div>
+@component('admin.partials.modal', [
+  'categorias' => $categorias,
+  'titulo' => "Categorias",
+  'include' => 'admin/forms/categorias',
+  'parent' => 'gastronomia',
+])
 
+@endcomponent
 
 @endsection
 

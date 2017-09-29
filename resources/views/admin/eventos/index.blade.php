@@ -11,11 +11,22 @@ $('h4[data-href]').on("click", function() {
   <h1>Eventos</h1>
 </div>
 <div class="col-md-6 text-right">
+  <a type="button" class="btn btn-default" style="margin-top: 20px;" href="" data-toggle="modal" data-target="#modal">Categorias</a>
   <a type="button" class="btn btn-default" style="margin-top: 20px;" href="{{route('admin.eventos.create')}}"  >Agregar Evento</a>
 </div>
 <hr>
+@if (count($eventos) < 1)
+
+<div class="col-md-12 text-center">
+  <hr>
+    <h2>No hay eventos cargados</h2>
+
+</div>
+@else
+
 
 <div class="col-md-12">
+  <hr>
     <table class="table table-hover" cellspacing="0" width="100%" style="margin-top:25px;">
         <thead>
             <tr>
@@ -39,8 +50,19 @@ $('h4[data-href]').on("click", function() {
        </tbody>
     </table>
 </div>
+@endif
 
 @endsection
+
+@component('admin.partials.modal', [
+  'categorias' => $categorias,
+  'titulo' => "Categorias",
+  'include' => 'admin/forms/categorias',
+  'parent' => 'evento',
+])
+
+@endcomponent
+
 @push('scripts')
 <script type="text/javascript">
 $('h4[data-href]').on("click", function() {

@@ -17,7 +17,7 @@ class CategoriaController extends Controller
      * @return \Illuminate\Http\Response
      */
      public function index($parent){
-       
+
        $data['categorias'] = Categoria::where('parent', $parent);
 
        return view('admin.partials.categorias', $data);
@@ -53,16 +53,8 @@ class CategoriaController extends Controller
           'parent' => $request->parent,
         ], 500);
       }
-
-
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Categoria  $categoria
-     * @return \Illuminate\Http\Response
-     */
     public function show(Categoria $categoria)
     {
         //

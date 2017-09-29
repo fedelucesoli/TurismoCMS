@@ -22,13 +22,11 @@
 
   <div class="form-group @if ($errors->has('categoria')) has-error @endif">
     {{ Form::label('categoria', "Categoria", ['class' => 'control-label col-sm-2']) }}
-    <div class="col-sm-5">
+    <div class="col-sm-8">
       {{ Form::select('categoria', $categorias->pluck('nombre'), null, ['placeholder' => 'Categoria', 'class' => 'select form-control']) }}
       @if ($errors->has('categoria'))<p class="help-block">{{ $errors->first('categoria') }}</p>@endif
     </div>
-    <div class="col-sm-3 text-right">
-      <a type="button" class="btn btn-default btn-block"  data-toggle="modal" data-target="#modal" >Agregar Categoria</a>
-    </div>
+
   </div>
 
   <div class="form-group ">
@@ -47,13 +45,11 @@
 
   <div class="form-group @if ($errors->has('lugar')) has-error @endif">
     {{ Form::label('lugar', "Lugar", ['class' => 'control-label col-sm-2']) }}
-    <div class="col-sm-5">
+    <div class="col-sm-8">
       {{ Form::select('lugar', $lugares->pluck('nombre'), null, ['placeholder' => 'Lugar', 'class' => 'select form-control']) }}
       @if ($errors->has('lugar'))<p class="help-block">{{ $errors->first('categoria') }}</p>@endif
     </div>
-    <div class="col-sm-3">
-      <a type="button" class="btn btn-default btn-block" href="{{route('admin.eventos.create')}}">Agregar Lugar</a>
-    </div>
+
   </div>
 
   <div class="form-group @if ($errors->has('descripcion')) has-error @endif">
@@ -78,13 +74,5 @@
 
 </div>
 
-@component('admin.partials.modal', [
-  'categorias' => $categorias,
-  'titulo' => "Categorias",
-  'include' => 'admin/forms/categorias',
-  'parent' => 'eventos',
-])
-
-@endcomponent
 
 @endsection

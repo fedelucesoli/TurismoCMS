@@ -28,19 +28,6 @@ class ComerController extends Controller
     public function create()
     {
         $data['local'] = new Comer;
-        // $config = array();
-        // $config['center'] = '-35.1870349, -59.0949762';
-        // $config['map_width'] = '100%';
-        // $config['map_height'] = 500;
-        // $config['zoom'] = 15;
-        // $config['onclick'] = '
-        // createMarker_map({ map: map, position:event.latLng });
-        // document.getElementById("lat").value = event.latLng.lat();
-        // document.getElementById("lng").value = event.latLng.lng();
-        // ';
-        //
-        // Gmaps::initialize($config);
-        // $data['map'] = Gmaps::create_map();
         $data['map'] = $this->mapa->addMarkerMap();
         $data['categorias'] = Categoria::where('parent', 'gastronomia')->get();
         return view('admin.gastronomia.form', $data);
@@ -85,33 +72,13 @@ class ComerController extends Controller
 
     public function show(Comer $comer){
 
-      $data['item'] = Comer::find($comer->id);
+      $data['item'] = $comer;
 
       if(is_null($data['item'])){
         $request->session()->flash('status', ':( No se encuentra ese registro!');
         return redirect()->route('admin.comer.index');
       }
-
-      $latlng= $data['item']->lat . ', '. $data['item']->lng;
-      $config = array();
-      $config['center'] = $latlng;
-      $config['map_width'] = '100%';
-      $config['map_height'] = 400;
-      $config['zoom'] = 18;
-      $config['disableMapTypeControl'] = true;
-      $config['disableDefaultUI'] = true;
-      $marker = array();
-      $marker['position'] = $latlng;
-      $marker['icon'] = '/img/marker.png';
-      $marker['draggable'] = true;
-        $marker['ondragend'] = '
-        document.getElementById("lat").value = event.latLng.lat();
-        document.getElementById("lng").value = event.latLng.lng();
-        ';
-      Gmaps::add_marker($marker);
-      Gmaps::initialize($config);
-
-      $data['map'] = Gmaps::create_map();
+      $data['map'] = $this->mapa->showMarkerMap($data['item']);
       return view('admin.gastronomia.show', $data);
     }
 
@@ -124,7 +91,7 @@ class ComerController extends Controller
 
     public function update(Request $request, Comer $comer)
     {
-        $item = Comer::find($comer->id);
+        $item = $comer;
         $rules = array(
           'nombre'            => 'required|max:140',
           'direccion'         => 'required',
@@ -160,7 +127,7 @@ class ComerController extends Controller
 
     public function estado(Request $request, Comer $comer)
         {
-          $item = Comer::findOrFail($request->input('id'));
+          $item = $comer;
           if ($item) {
             if ($item->activo) {
               $estado = 0;

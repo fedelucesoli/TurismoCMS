@@ -5,6 +5,7 @@
   <h1>Alojamiento</h1>
 </div>
 <div class="col-md-6 text-right">
+  <a type="button" class="btn btn-default" style="margin-top: 20px;" href="" data-toggle="modal" data-target="#modal">Categorias</a>
   <a type="button" class="btn btn-default" style="margin-top: 20px;" href="{{route('admin.dormir.create')}}"  >Agregar Alojamiento</a>
 </div>
 <hr>
@@ -19,6 +20,7 @@
               <th style="width:7%"><h5>#</h5></th>
               <th><h5>Nombre</h5></th>
               <th style="width:10%"><h5 >Estado</h5></th>
+              <th style="width: 20%"><h5 >Acciones</h5></th>
             </tr>
         </thead>
         <tbody>
@@ -28,8 +30,13 @@
 
               <td><h4 data-href="{{route('admin.dormir.show', $item->id)}}">{{$item->nombre}} <small>{{$item->categoria}}</small></h4></td>
               <td style="vertical-align: middle">
+
                 @component('admin.partials.activo', ['item' => $item, 'url' => 'dormir'])
                 @endcomponent
+              </td>
+              <td style="vertical-align: middle">
+                <button type="button" name="button" class="btn btn-xs">Editar</button>
+                <button type="button" name="button" class="btn btn-xs">Eliminar</button>
               </td>
             </tr>
           @endforeach
@@ -39,6 +46,14 @@
 
 </div>
 @endsection
+
+@component('admin.partials.modal', [
+  'categorias' => $categorias,
+  'titulo' => "Categorias",
+  'include' => 'admin/forms/categorias',
+  'parent' => 'alojamientos',
+])
+@endcomponent
 
 @push('scripts')
 <script type="text/javascript">

@@ -3,39 +3,32 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Lugar;
+use App\Categoria;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use GeneaLabs\Phpgmaps\Facades\PhpgmapsFacade as Gmaps;
+use App\Logic\MapasRepository;
 
 
 class LugarController extends Controller
 {
-    public function __construct(){
-      $this->middleware('auth');
-     }
-
+  public function __construct(MapasRepository $MapaRepository){
+    $this->middleware('auth');
+    $this->mapa = $MapaRepository;
+  }
     public function index()
     {
       $data['lugares'] = Lugar::all();
+      $data['categorias'] = Categoria::where('parent', 'lugares')->get();
       return view('admin.lugar.index', $data);
     }
 
     public function create()
     {
       $data['lugar'] = new Lugar;
-      $config = array();
-      $config['center'] = '-35.1870349, -59.0949762';
-      $config['map_width'] = '100%';
-      $config['map_height'] = 500;
-      $config['zoom'] = 15;
-      $config['onclick'] = '
-      createMarker_map({ map: map, position:event.latLng });
-      document.getElementById("lat").value = event.latLng.lat();
-      document.getElementById("lng").value = event.latLng.lng();
-      ';
+      $data['map'] = $this->mapa->addMarkerMap();
 
-      Gmaps::initialize($config);
-      $data['map'] = Gmaps::create_map();
+      $data['categorias'] = Categoria::where('parent', 'gastronomia')->get();
       return view('admin.lugar.form', $data);
     }
 
@@ -50,16 +43,6 @@ class LugarController extends Controller
 
       $item = new Lugar;
       $item->fill($request->all());
-      //
-      // $item->nombre = $request->nombre;
-      // $item->direccion = $request->direccion;
-      // $item->localidad = $request->localidad;
-      // $item->telefono = $request->telefono;
-      // $item->web = $request->web;
-      // $item->email = $request->email;
-      // $item->lng = $request->lng;
-      // $item->lat = $request->lat;
-
       $item->activo = 1;
       $item->id_usuario = $request->user()->id;
       $item->save();
@@ -75,33 +58,12 @@ class LugarController extends Controller
     public function show(Lugar $lugar)
     {
       $data['item'] = $lugar;
-      // $data['item'] = Lugar::find($lugar->id);
-
       if(is_null($data['item'])){
-        $request->session()->flash('status', ':( No lo encuentre!');
+        $request->session()->flash('status', ':( No lo encontre!');
         return redirect()->route('admin.lugar.index');
       }
+      $data['map'] = $this->mapa->showMarkerMap($data['item']);
 
-      $latlng= $data['item']->lat . ', '. $data['item']->lng;
-      $config = array();
-      $config['center'] = $latlng;
-      $config['map_width'] = '100%';
-      $config['map_height'] = 400;
-      $config['zoom'] = 18;
-      $config['disableMapTypeControl'] = true;
-      $config['disableDefaultUI'] = true;
-      $marker = array();
-      $marker['position'] = $latlng;
-      $marker['icon'] = '/img/marker.png';
-      $marker['draggable'] = true;
-      $marker['ondragend'] = '
-      document.getElementById("lat").value = event.latLng.lat();
-      document.getElementById("lng").value = event.latLng.lng();
-      ';
-      Gmaps::add_marker($marker);
-      Gmaps::initialize($config);
-
-      $data['map'] = Gmaps::create_map();
       return view('admin.lugar.show', $data);
     }
 

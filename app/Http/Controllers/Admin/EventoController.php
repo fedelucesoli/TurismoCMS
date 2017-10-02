@@ -12,11 +12,7 @@ use App\Categoria;
 
 class EventoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
       $data['eventos'] = Evento::all();
@@ -39,28 +35,44 @@ class EventoController extends Controller
       return view('admin.eventos.form', $data);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
+      $input = $request->all();
+      $evento = new Evento;
+      $evento->titulo = $request->titulo;
+      $evento->descripcion = $request->descripcion;
+      $evento->fecha = $request->fecha;
+      $evento->hora = $request->hora;
+      $evento->lugar = $request->lugar;
+      $evento->categoria = $request->categoria;
+      $evento->activo = $request->activo;
+      try {
+        $evento->save();
+        return view('admin.eventos.show')->with($evento->id);
 
-      Alert::add('error', 'Error message');
-      return Redirect::to('dashboard');
+      } catch (Exception $e) {
+        return view('admin.eventos.index')->with('error', $e);
+
+      }
+
+
+
+
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Evento  $evento
-     * @return \Illuminate\Http\Response
-     */
     public function show(Evento $evento)
     {
-        //
+      $data['item'] = $evento;
+      if(is_null($data['item'])){
+        $request->session()->flash('status', ':( No se encuentra ese registro!');
+
+        return redirect()->route('admin.eventos.index');
+      }
+
+      return view('admin.eventos.show', $data);
+
     }
 
     /**

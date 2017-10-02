@@ -35,8 +35,8 @@
                 @endcomponent
               </td>
               <td style="vertical-align: middle">
-                <button type="button" name="button" class="btn btn-xs">Editar</button>
-                <button type="button" name="button" class="btn btn-xs">Eliminar</button>
+                <a href="{{route('admin.dormir.show', $item->id)}}" type="button" class="btn  btn-default"> <i class="fa fa-pencil"></i></a>
+                <a href="#" type="button" class="btn  btn-default"><i class="fa fa-trash"></i></a>
               </td>
             </tr>
           @endforeach

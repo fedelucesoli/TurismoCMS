@@ -45,6 +45,7 @@ class ComerController extends Controller
 
       $item = new Comer;
       $item->nombre = $request->nombre;
+      // TODO slug
       $item->direccion = $request->direccion;
       $item->localidad = $request->localidad;
       $item->telefono = $request->telefono;

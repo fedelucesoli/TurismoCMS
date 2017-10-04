@@ -40,6 +40,7 @@ $('tr[data-href]').on("click", function() {
        </tbody>
     </table>
 </div>
+
 @component('admin.partials.modal', [
   'categorias' => $categorias,
   'titulo' => "Categorias",

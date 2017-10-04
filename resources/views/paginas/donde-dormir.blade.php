@@ -105,22 +105,23 @@
   </div>
 
 <div class="row">
-      <div class="ficha-servicio col-md-4 col-sm-6 col-md-offset-2">
-        <span class="categoria">Departamento con servicio</span>
-        <h4>La Marcelina</h4>
-        <div class="direccion">Calle 35 entre 1 y 2</div>
-        <div class="telefono">011- 155 159 5120</div>
-        <div class="mail"><a href="mailto:lamarcelina@hotmail.com">E-mail</a></div>
-      </div>
+    <div class="ficha-servicio col-md-4 col-sm-6 col-md-offset-2">
+      <span class="categoria">Departamento con servicio</span>
+      <h4>La Marcelina</h4>
+      <div class="direccion">Calle 35 entre 1 y 2</div>
+      <div class="telefono">011- 155 159 5120</div>
+      <div class="mail"><a href="mailto:lamarcelina@hotmail.com">E-mail</a></div>
+    </div>
 
-      <div class="ficha-servicio col-md-4 col-sm-6">
-        <span class="categoria">Departamento con servicio</span>
-        <h4>Bungalobos</h4>
-        <div class="direccion">Calle 32 y 4</div>
-        <div class="telefono">02227 - 494354</div>
-        <div class="web"><a href="www.bungalobos.com.ar">www.bungalobos.com.ar</a></div>
-      </div>
+    <div class="ficha-servicio col-md-4 col-sm-6">
+      <span class="categoria">Departamento con servicio</span>
+      <h4>Bungalobos</h4>
+      <div class="direccion">Calle 32 y 4</div>
+      <div class="telefono">02227 - 494354</div>
+      <div class="web"><a href="www.bungalobos.com.ar">www.bungalobos.com.ar</a></div>
+    </div>
 </div>
+
 <div class="row">
       <div class="ficha-servicio col-md-4 col-sm-6 col-md-offset-2">
         <span class="categoria">Departamento con servicio</span>
@@ -138,6 +139,7 @@
         <div class="web"><a href="www.terrazasdelobos.com.ar">www.terrazasdelobos.com.ar</a></div>
       </div>
 </div>
+
 <div class="row">
       <div class="ficha-servicio col-md-4 col-sm-6 col-md-offset-2">
         <span class="categoria">Departamento sin servicio</span>

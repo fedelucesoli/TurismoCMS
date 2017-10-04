@@ -183,7 +183,7 @@ section {
   height: 50px;
   width: 120px;
   left: 15px;
-  border-radius: 0  0  2px  2px;
+  border-radius: 0  0  5px  5px;
   -webkit-transition: all 0.35s;
   -moz-transition: all 0.35s;
   transition: all 0.35s;
@@ -756,6 +756,50 @@ header .header-content {
 .redes-sociales {
   text-align: center;
   color: #2C2F36;
+}
+.clase {
+  height: 150px;
+  width: 100px;
+}
+.icon-social1 {
+  font-family: FontAwesome;
+  font-size: 1.5em;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 10px;
+  margin: .5em 0;
+  color: white;
+  text-decoration: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  display: inline-block;
+}
+.icon-social1:focus,
+.icon-social1:hover {
+  color: white;
+  text-decoration: none;
+}
+.icon-social1.facebook {
+  background-color: #3B5998;
+}
+.icon-social1.facebook:before {
+  content: '\f230';
+}
+.icon-social1.twitter {
+  background-color: #33ccff;
+}
+.icon-social1.twitter:before {
+  content: '\f099';
+}
+.icon-social1.instagram {
+  background-color: #3F729B;
+}
+.icon-social1.instagram:before {
+  content: '\f16d';
 }
 .icon-social {
   display: block;

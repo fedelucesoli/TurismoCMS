@@ -74,80 +74,6 @@ section{
     margin-bottom: 50px ;
 }
 
-// NAV
-
-.logo-menu{
-    position: absolute;
-    z-index: 9999;
-    background-color: @theme-primary;
-    height: 50px;
-    width: 120px;
-    left: 15px;
-    border-radius: 0  0  5px  5px;
-    .transition-all;
-
-    @media (min-width: 1000px) {
-        .nav-small &{
-            height: 50px;
-            width: 180px;
-            .transition-all;
-        }
-    }
-
-    & img{
-        // width: 100%;
-        margin: 0 auto;
-        height: 100%;
-    }
-     @media (min-width: 768px) {
-        height: 80px;
-        width: 180px;
-        .nav-small {
-            height: 50px;
-            width: 180px;
-            .transition-all;
-            }
-     }
-
-}
-
-// CINCO columnas para el menu
-.col-xs-5ths,
-.col-sm-5ths,
-.col-md-5ths,
-.col-lg-5ths {
-    position: relative;
-    min-height: 1px;
-    padding-right: 10px;
-    padding-left: 10px;
-}
-
-.col-xs-5ths {
-    width: 20%;
-    float: left;
-}
-@media (min-width: 768px) {
-    .col-sm-5ths {
-        width: 20%;
-        float: left;
-    }
-}
-
-@media (min-width: 992px) {
-    .col-md-5ths {
-        width: 20%;
-        float: left;
-    }
-}
-
-@media (min-width: 1200px) {
-    .col-lg-5ths {
-        width: 20%;
-        float: left;
-    }
-}
-
-
 // HEADER
 
 header {
@@ -697,7 +623,7 @@ color: @verde;
 
 }
 
-.icon-social1{
+.icon-social{
   font-family: FontAwesome;
   font-size: 1.5em;
   text-transform: none;
@@ -737,7 +663,7 @@ color: @verde;
       }
   }
 }
-.icon-social{
+.icon-social1{
     display: block;
     padding: 10px;
     height: 60px;
@@ -796,13 +722,5 @@ footer{
       position: relative;
       text-align: right;
     }
-    & .icon-social{
-      height: 40px;
-      width: 40px;
-      &:before{
-        line-height: 82px !important;
-        right: 16px !important;
-        font-size: 21px !important;
-      }
-    }
+
 }

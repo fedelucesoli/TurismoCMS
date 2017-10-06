@@ -9,6 +9,11 @@
         <h1>¿D&oacute;nde dormir en Lobos?</h1>
       </div>
       </div>
+
+      {{-- SideBar con categorias --}}
+      {{-- listado --}}
+      {{-- Detalles --}}
+      
 <div class="row">
 
   <div class="col-md-8 col-md-offset-2 separador-servicios">

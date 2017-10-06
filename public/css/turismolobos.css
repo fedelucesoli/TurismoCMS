@@ -1,15 +1,20 @@
 .navbar-default {
-  background-color: rgba(255, 255, 255, 0.92);
+  background-color: rgba(255, 255, 255, 0.95);
   border-color: rgba(223, 56, 55, 0.2);
   border: none;
 }
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .active > a:hover {
+  background-color: transparent;
+  color: #df3837;
+}
 .navbar-default .navbar-nav > li > a:focus,
 .navbar-default .navbar-nav > li > a:hover {
-  border-bottom: 5px solid #df3837;
-  padding-bottom: 10px;
+  color: #df3837;
+  background-color: none;
 }
 .navbar-default .navbar-nav > li > a.active {
-  border-bottom: 5px solid #df3837;
   padding-bottom: 10px;
 }
 @media (max-width: 1000px) {
@@ -52,6 +57,8 @@
 }
 .navbar-toggle {
   border-color: #df3837 !important;
+  border: none;
+  font-weight: 700;
   color: #df3837;
   font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
 }
@@ -108,73 +115,6 @@
 .yamm .dropdown.yamm-fw .dropdown-menu {
   left: 0;
   right: 0;
-}
-@font-face {
-  font-family: 'FontAwesome';
-  src: url('../../bower_components/font-awesome/fonts/fontawesome-webfont.eot?v=4.7.0');
-  src: url('../../bower_components/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'), url('../../bower_components/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), url('../fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-::selection {
-  background-color: #df3837;
-  color: white;
-}
-html,
-body {
-  height: 100%;
-  width: 100%;
-  line-height: 16px;
-  background-color: #f5f5f5;
-}
-body {
-  font-family: 'Domine', 'Helvetica Neue', Arial, sans-serif;
-}
-a {
-  -webkit-transition: all 0.35s;
-  -moz-transition: all 0.35s;
-  transition: all 0.35s;
-  color: #df3837;
-  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
-}
-a:hover,
-a:focus {
-  color: #c4201f;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 800;
-}
-.top {
-  position: absolute;
-  width: 80px;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  border-bottom: 2px solid #df3837;
-}
-.top-left {
-  width: 80px;
-  border-bottom: 2px solid #df3837;
-  margin-bottom: 25px;
-}
-p {
-  font-size: 16px;
-  line-height: 1.5;
-  margin-bottom: 30px;
-}
-p.lead {
-  margin-top: 40px;
-}
-section {
-  margin-top: 50px ;
-  margin-bottom: 50px ;
 }
 .logo-menu {
   position: absolute;
@@ -244,6 +184,73 @@ section {
     width: 20%;
     float: left;
   }
+}
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('../../bower_components/font-awesome/fonts/fontawesome-webfont.eot?v=4.7.0');
+  src: url('../../bower_components/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'), url('../../bower_components/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), url('../fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+::selection {
+  background-color: #df3837;
+  color: white;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  line-height: 16px;
+  background-color: #f5f5f5;
+}
+body {
+  font-family: 'Domine', 'Helvetica Neue', Arial, sans-serif;
+}
+a {
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  transition: all 0.35s;
+  color: #df3837;
+  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+}
+a:hover,
+a:focus {
+  color: #c4201f;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 800;
+}
+.top {
+  position: absolute;
+  width: 80px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 2px solid #df3837;
+}
+.top-left {
+  width: 80px;
+  border-bottom: 2px solid #df3837;
+  margin-bottom: 25px;
+}
+p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+p.lead {
+  margin-top: 40px;
+}
+section {
+  margin-top: 50px ;
+  margin-bottom: 50px ;
 }
 header {
   position: relative;
@@ -761,7 +768,7 @@ header .header-content {
   height: 150px;
   width: 100px;
 }
-.icon-social1 {
+.icon-social {
   font-family: FontAwesome;
   font-size: 1.5em;
   text-transform: none;
@@ -778,53 +785,10 @@ header .header-content {
   text-align: center;
   display: inline-block;
 }
-.icon-social1:focus,
-.icon-social1:hover {
+.icon-social:focus,
+.icon-social:hover {
   color: white;
   text-decoration: none;
-}
-.icon-social1.facebook {
-  background-color: #3B5998;
-}
-.icon-social1.facebook:before {
-  content: '\f230';
-}
-.icon-social1.twitter {
-  background-color: #33ccff;
-}
-.icon-social1.twitter:before {
-  content: '\f099';
-}
-.icon-social1.instagram {
-  background-color: #3F729B;
-}
-.icon-social1.instagram:before {
-  content: '\f16d';
-}
-.icon-social {
-  display: block;
-  padding: 10px;
-  height: 60px;
-  width: 60px;
-  margin: 0 auto;
-  border-radius: 40px;
-}
-.icon-social.facebook:hover,
-.icon-social.twitter:hover,
-.icon-social.instagram:hover {
-  opacity: .8;
-}
-.icon-social.facebook:before,
-.icon-social.twitter:before,
-.icon-social.instagram:before {
-  font-family: FontAwesome;
-  font-size: 30px;
-  left: 0;
-  right: 0;
-  line-height: 60px;
-  position: absolute;
-  top: 0px;
-  color: white;
 }
 .icon-social.facebook {
   background-color: #3B5998;
@@ -844,6 +808,49 @@ header .header-content {
 .icon-social.instagram:before {
   content: '\f16d';
 }
+.icon-social1 {
+  display: block;
+  padding: 10px;
+  height: 60px;
+  width: 60px;
+  margin: 0 auto;
+  border-radius: 40px;
+}
+.icon-social1.facebook:hover,
+.icon-social1.twitter:hover,
+.icon-social1.instagram:hover {
+  opacity: .8;
+}
+.icon-social1.facebook:before,
+.icon-social1.twitter:before,
+.icon-social1.instagram:before {
+  font-family: FontAwesome;
+  font-size: 30px;
+  left: 0;
+  right: 0;
+  line-height: 60px;
+  position: absolute;
+  top: 0px;
+  color: white;
+}
+.icon-social1.facebook {
+  background-color: #3B5998;
+}
+.icon-social1.facebook:before {
+  content: '\f230';
+}
+.icon-social1.twitter {
+  background-color: #33ccff;
+}
+.icon-social1.twitter:before {
+  content: '\f099';
+}
+.icon-social1.instagram {
+  background-color: #3F729B;
+}
+.icon-social1.instagram:before {
+  content: '\f16d';
+}
 footer {
   background-color: white;
   padding: 15px 0;
@@ -854,13 +861,4 @@ footer .redes-sociales {
   display: inline-block;
   position: relative;
   text-align: right;
-}
-footer .icon-social {
-  height: 40px;
-  width: 40px;
-}
-footer .icon-social:before {
-  line-height: 82px !important;
-  right: 16px !important;
-  font-size: 21px !important;
 }

@@ -1,22 +1,20 @@
 <footer>
 <div class="container">
 
-    <div class="col-sm-4">
+    <div class="col-sm-4 col-xs-12">
       <img src="{{asset('img/logo-direccion.svg')}}" alt="Dirección de Turismo" class="img-responsive">
     </div>
-    <div class="col-sm-8 text-right">
+    <div class="col-sm-8 text-right col-xs-12">
 
-      <a href="https://facebook.com/turismo.lobos" target="_blank" class="icon-social1 facebook">
+      <a href="https://facebook.com/turismo.lobos" target="_blank" class="icon-social facebook">
       </a>
 
-      <a href="https://twitter.com/Turismolobos" target="_blank" class="icon-social1 twitter">
+      <a href="https://twitter.com/Turismolobos" target="_blank" class="icon-social twitter">
       </a>
 
-      <a href="https://www.instagram.com/turismolobos" target="_blank" class="icon-social1 instagram">
+      <a href="https://www.instagram.com/turismolobos" target="_blank" class="icon-social instagram">
       </a>
-      <div class="clase" id="id">
 
-      </div>
     </div>
 </div>
 </footer>

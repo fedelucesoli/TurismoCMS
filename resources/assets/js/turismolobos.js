@@ -5,8 +5,10 @@ $(document).ready(function() {
 	$(window).scroll(function () {
 		if ($(this).scrollTop() > 250) {
 			nav.addClass("nav-small");
+			$('.logo-menu').css('border-radius', '0');
 		} else {
 			nav.removeClass("nav-small");
+			$('.logo-menu').css('border-radius', '0 0 5px 5px');
 		}
 	});
 

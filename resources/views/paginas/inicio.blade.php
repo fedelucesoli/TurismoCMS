@@ -1,12 +1,8 @@
 @extends('layouts.app')
 
-@section('navbar')
-@parent
-@endsection
-
 @section('content')
   <header>
-       <div class="slider ">
+       <div class="slider">
          <ul>
            <li><div class="header-home cultura"><img src="{{ asset('img/senti-cultura.png') }}" alt="Sent&iacute; cultura!"></div></li>
            <li><div class="header-home adrenalina"><img src="{{ asset('img/senti-adrenalina.png') }}" alt="Sent&iacute; adrenalina!"></div></li>
@@ -108,19 +104,19 @@
       </div>
   </section>
   <section class="container">
-      <div class="col-md-4">
+      <div class="col-sm-4">
         <a href="{{ asset('img/mapas/Mapa-Partido-de-Lobos.pdf') }}" class="link" target="_blank">
           <img src="{{ asset('img/mapas/Mapa-Partido-de-Lobos-thumb.jpg') }}" class="img-responsive" alt="Mapa Partido de Lobos">
           <span class="middle"><span class="text">VER</span></span>
         </a>
       </div>
-      <div class="col-md-4">
+      <div class="col-sm-4">
         <a href="{{ asset('img/mapas/Mapa-Planta-Urbana-Lobos.pdf') }}" class="link" target="_blank">
           <img src="{{ asset('img/mapas/Mapa-Planta-Urbana-Lobos-thumb.jpg') }}" class="img-responsive" alt="Mapa Planta Urbana de Lobos">
           <span class="middle"><span class="text">VER</span></span>
         </a>
       </div>
-      <div class="col-md-4">
+      <div class="col-sm-4">
         <a href="{{ asset('img/mapas/Mapa-Laguna-de-Lobos.jpg') }}" class="link" target="_blank">
           <img src="{{ asset('img/mapas/Mapa-Laguna-de-Lobos-thumb.jpg') }}" class="img-responsive" alt="Mapa Laguna de Lobos">
           <span class="middle"><span class="text">VER</span></span>

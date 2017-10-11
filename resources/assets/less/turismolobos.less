@@ -632,7 +632,7 @@ color: @verde;
   -moz-osx-font-smoothing: grayscale;
   // padding: .5em;
   padding: 10px;
-  margin: .5em 0;
+  margin: .5em .2em;
   color: white;
   text-decoration: none;
   border-radius: 50%;
@@ -640,9 +640,12 @@ color: @verde;
   height: 40px;
   text-align: center;
   display: inline-block;
+  .transition-all;
   &:focus, &:hover{
     color: white;
     text-decoration: none;
+    transform: scale(1.2);
+    .transition-all;
   }
   &.facebook{
     background-color:#3B5998;

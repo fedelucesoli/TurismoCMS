@@ -2,15 +2,68 @@
 
 @section('content')
 
-  <header class="header-comer"></header>
+  <header class="header-comer">
+    <h1 style="
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    0: 50%
+    width: 50%;
+    right: 0;
+">¿Dónde comer en Lobos?</h1>
+
+  </header>
 
   <section class="container">
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+  {{-- <div class="row">
+    <div class="col-md-12">
       <h1>¿D&oacute;nde comer en Lobos?</h1>
     </div>
-  </div>
+  </div> --}}
   <div class="row">
+    <div class="col-md-4 col-md-offset-2">
+      <div class="ficha-servicio">
+        <span class="categoria">Restaurant</span>
+        <h4>La Boquería</h4>
+        <div class="direccion">Salgado Oeste y Castelli </div>
+        <div class="telefono">02227-423907</div>
+      </div>
+      <!-- La Boquería -->
+      <div class="ficha-servicio">
+        <span class="categoria">Restaurant</span>
+        <h4>El Refugio del Lupo</h4>
+        <div class="direccion">Patagones 8 esq. Perón </div>
+        <div class="telefono">02227-422829</div>
+      </div>
+      <!-- El Refugio del Lupo -->
+      <div class="ficha-servicio">
+        <span class="categoria">Restaurant</span>
+        <h4>El Candil</h4>
+        <div class="direccion">Av. Yrigoyen y RN205</div>
+        <div class="telefono">02227-424721</div>
+      </div>
+      <!-- El Candil -->
+      <div class="ficha-servicio">
+        <span class="categoria">Restaurant</span>
+        <h4>Bodegón Don Juan</h4>
+        <div class="direccion">Moreno y Lisandro de la Torre</div>
+        <div class="telefono">02227-15539260</div>
+      </div>
+      <!-- Bodegón Don Juan -->
+      <div class="ficha-servicio">
+        <span class="categoria">Restaurant</span>
+        <h4>Ruta 41</h4>
+        <div class="direccion">RP 41 km. 175</div>
+        <div class="telefono">02227-15410588</div>
+      </div>
+
+    </div>
+    <div class="col-md-6">
+      MAPA  y fotos
+
+    </div>
+  </div>
+  {{-- <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <div class="ficha-servicio col-sm-6 col-md-6">
         <span class="categoria">Restaurant</span>
@@ -189,6 +242,6 @@
       <!-- El indio -->
 
     </div>
-  </div>
+  </div> --}}
   </section>
 @endsection
